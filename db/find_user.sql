@@ -1,0 +1,1 @@
+select count(*) from r_users where email = $1;
