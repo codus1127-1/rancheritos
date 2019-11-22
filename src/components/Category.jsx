@@ -19,14 +19,27 @@ class Category extends Component {
     });
   };
 
+  addToCart = () => {
+    axios.post('/category/items')
+    .then(res => {
+      console.log(res)
+    })
+  }
+
   render() {
     let subCategoryItems = this.state.foodItems.map((el, index) => {
       return (
         <div key={index}>
           <div className="sub-category">
-            <h2>{el.title}</h2>
-            <h4>{el.price}</h4>
+            <div className="order-item">
+            	<h2>{el.title}</h2>
+            	<h4> ${el.price}</h4>
+            </div>
             <p>{el.description}</p>
+            <div className="button-container">
+              <button className="item-buttons">Customize</button>
+              <button onClick={(el)=> this.addToCart(el)} className="item-buttons">Add to Cart</button>
+            </div>
           </div>
         </div>
       );

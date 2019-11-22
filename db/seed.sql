@@ -18,6 +18,11 @@ values ('Codus1127', 'codyjamesyoung@gmail.com'),
 
 select * from r_users;
 
+create table category (
+    id serial primary key,
+    
+)
+
 drop table if exists food_items;
 
 create table food_items (

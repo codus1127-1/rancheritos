@@ -5,7 +5,7 @@ module.exports = {
         database.get_categories()
         .then(result => {
             res.status(200).send(result)
-            console.log(result)
+            // console.log(result)
         }).catch(error => {
             console.log(error)
         })
@@ -16,6 +16,23 @@ module.exports = {
         const {category} = req.params
         const result = await db.get_category_items(category)
         res.status(200).send(result)
+        // console.log(result)
+        console.log(req.session.user.user_id)
+    },
+
+    // addToCart: (req, res, next) => {
+    //     const db = req.app.get('db')
+    //     const {id} = req.params
+    //     db.add_to_cart([req.session.user.user_id, id])
+    //     .then(result => {
+    //         res.status(200).send(result)
+    //     })
+    // },
+
+    addToCart: (req, res) => {
+        req.session.user.cart.push(req.body)
+        res.status(200).send(req.session.user.cart)
+        console.log(req.session.user.cart)
     }
 
 }

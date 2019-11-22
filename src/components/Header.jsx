@@ -4,6 +4,7 @@ import { updateUserInfo } from '../ducks/reducer'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import {Link} from 'react-router-dom'
+import logo from '../assets/rancheritos_logo.png'
 
 const Header = props => {
   const logout = () => {
@@ -17,13 +18,21 @@ const Header = props => {
       })
     })
   }
+
+  const goBack = () => {
+    window.history.back();
+  }
+
   return (
-    <header>
-      <i className="fas fa-arrow-circle-left"></i>
-      <Link to='/'>
-          <button onClick={logout}>Logout</button>
-      </Link>
-    </header>
+    <div className="header-container">
+      <div className='header'>
+        <i onClick={goBack} className="fas fa-arrow-circle-left fa-2x fa-gradient-two"></i>
+        <img src={logo} alt="logo"/>
+        <Link to='/'>
+        <button className="logout" onClick={logout}>Logout</button>
+        </Link>
+      </div>
+    </div>
   )
 }
 

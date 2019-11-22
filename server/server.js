@@ -23,6 +23,8 @@ app.delete('/auth/logout', authCtrl.logout)
 app.get('/category', ctrl.getCategories)
 app.get('/category/items/:category', ctrl.getItems)
 
+app.post('/category/items', ctrl.addToCart)
+
 
 massive(CONNECTION_STRING).then(database => {
     app.set('db', database)

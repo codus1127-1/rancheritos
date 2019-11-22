@@ -1,3 +1,2 @@
-select category from food_items
-group by category
-order by category asc;
+select title, img from category
+order by title asc;

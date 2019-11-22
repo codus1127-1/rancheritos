@@ -1,7 +1,168 @@
 .App {
-  text-align: center; }
+  text-align: left; }
+
+/* ------------------- Reset File ------------------- */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol,
+ul {
+  list-style: none; }
+
+blockquote,
+q {
+  quotes: none; }
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  background: url("https://thumbs.dreamstime.com/b/blue-painted-wood-boards-texture-background-vintage-wooden-horizontal-planks-73672409.jpg") bottom left repeat;
+  background-attachment: scroll;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.411);
+  background-position: cover; }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 80px;
+  margin: 0 5vw;
+  padding-top: 20px; }
+
+.header img {
+  height: 80px;
+  width: auto; }
+
+.fa-gradient {
+  color: rgba(0, 0, 0, 0.411); }
+
+.fa-gradient-two {
+  color: rgba(255, 255, 255, 0.411); }
+
+.header-container {
+  position: sticky;
+  height: 100px;
+  top: 0px;
+  background-color: #273043;
+  border-bottom: 2px solid #fd2411; }
 
 .register {
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.342);
   background-image: url("https://urbaneat.co.uk/wp-content/uploads/2018/05/Mexican-dishes-banner.jpg");
   color: #ffffff;
   display: flex;
@@ -21,3 +182,127 @@
   justify-content: space-evenly;
   align-items: center;
   height: 60vh; }
+  .login button {
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 1.5rem;
+    color: white;
+    font-family: "Wendy One", sans-serif; }
+
+.category {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 35px;
+  margin-top: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.582); }
+  .category img {
+    height: auto;
+    width: 25vw;
+    margin-bottom: 5px; }
+
+.dash a {
+  text-decoration: none;
+  color: black; }
+
+.dash h2 {
+  font-size: 1.8rem;
+  color: #eeeeee;
+  font-family: "Permanent Marker", cursive; }
+
+.sub-category h2 {
+  font-size: 1.5rem;
+  color: #eeeeee;
+  font-family: "Permanent Marker", cursive; }
+
+.order-item {
+  display: flex;
+  justify-content: space-between; }
+
+.hero {
+  background-image: url("https://www.bajafresh.com/assets/img/baja-header.jpg");
+  height: 150px;
+  margin: 5px;
+  background-size: cover;
+  background-position: center; }
+
+input {
+  width: 70vw;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  color: white;
+  font-size: 1rem;
+  border-bottom: 1px solid white; }
+
+::placeholder {
+  color: white;
+  opacity: .8; }
+
+*:focus {
+  outline: none; }
+
+.sub-category {
+  padding-top: 10px;
+  border-top: 0.5px solid rgba(0, 0, 0, 0.404);
+  margin: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.582);
+  padding-bottom: 10px; }
+  .sub-category p {
+    padding-bottom: 10px;
+    color: #3a3a3a;
+    color: #feef05;
+    font-family: "Walter Turncoat", cursive;
+    margin-top: 7px; }
+  .sub-category h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #81c534; }
+  .sub-category .button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; }
+
+.container {
+  display: flex;
+  flex-direction: column; }
+  .container h1 {
+    font-size: 2.5rem;
+    color: #feef05;
+    font-family: "Permanent Marker", cursive;
+    margin: 0px auto;
+    border-bottom: 1px solid #feef05;
+    margin-bottom: 15px; }
+  .container .h2 {
+    font-size: 2rem;
+    color: #eeeeee;
+    font-family: "Permanent Marker", cursive;
+    margin: 0 auto; }
+  .container .line {
+    border-bottom: 1px solid white;
+    width: 90vw;
+    margin: 5px auto; }
+
+.logout {
+  box-shadow: 0px 1px 0px 0px #f0f7fa;
+  background: linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
+  background-color: #33bdef;
+  border-radius: 6px;
+  border: 1px solid #057fd0;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 10px;
+  text-decoration: none;
+  text-shadow: 0px -1px 0px #5b6178; }
+
+.logout:hover {
+  background: linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
+  background-color: #019ad2; }
+
+.logout:active {
+  position: relative;
+  top: 1px; }
