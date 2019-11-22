@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
+import Customize from "./Customize";
 
 class Category extends Component {
   state = {
@@ -12,19 +13,23 @@ class Category extends Component {
   };
 
   getCategoryItems = async () => {
-    const res = await axios.get(`/category/items/${this.props.match.params.category}`
+    const res = await axios.get(
+      `/category/items/${this.props.match.params.category}`
     );
-    console.log(res.data[0]);
+    // console.log(res.data[0]);
     this.setState({
       foodItems: res.data
     });
   };
 
-  addToCart = (el) => {
-    axios.post('/category/items', el )
-    .then(res => {
-      console.log(res)
-    })
+  addToCart = el => {
+    axios.post("/category/items", el).then(res => {
+      // console.log(res)
+    });
+  };
+
+  goBack = () => {
+    window.history.back();
   }
 
   render() {
@@ -33,23 +38,26 @@ class Category extends Component {
         <div key={index}>
           <div className="sub-category">
             <div className="order-item">
-            	<h2>{el.title}</h2>
-            	<h4> ${el.price}</h4>
+              <h2>{el.title}</h2>
+              <h4> ${el.price}</h4>
             </div>
-            <p>{el.description}</p>
-            <div className="button-container">
-              <Link to={`/item/${el.title}/customize`}>
-                <button className="item-buttons">Customize</button>
-              </Link>
-              <button onClick={()=> this.addToCart(el)} className="item-buttons">Add to Cart</button>
+            <div className="plus">
+              <p>{el.description}</p> <i onClick={() => this.addToCart(el)} className="fas fa-plus fa-2x"></i> 
             </div>
           </div>
+          <Customize key={el.id} item={el} />
         </div>
       );
     });
     return <div>
-        {subCategoryItems}
-    </div>;
+       <div className="sub-header">
+         <i onClick={this.goBack} className="fas fa-arrow-circle-left fa-2x fa-gradient-two"></i>
+        <h2>{this.props.match.params.category}</h2>
+       </div>
+        <div className="line"></div>
+
+      {subCategoryItems}
+      </div>;
   }
 }
 

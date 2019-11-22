@@ -195,7 +195,7 @@ body {
   justify-content: space-between;
   margin: 35px;
   margin-top: 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.582); }
+  border-bottom: 1px solid rgba(255, 255, 255, 0.65); }
   .category img {
     height: auto;
     width: 25vw;
@@ -226,7 +226,7 @@ body {
   background-size: cover;
   background-position: center; }
 
-input {
+.input {
   width: 70vw;
   height: 30px;
   background-color: rgba(0, 0, 0, 0);
@@ -237,7 +237,7 @@ input {
 
 ::placeholder {
   color: white;
-  opacity: .8; }
+  opacity: 0.8; }
 
 *:focus {
   outline: none; }
@@ -245,7 +245,7 @@ input {
 .sub-category {
   padding-top: 10px;
   border-top: 0.5px solid rgba(0, 0, 0, 0.404);
-  margin: 10px;
+  margin: 10px 10px 0px 10px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.582);
   padding-bottom: 10px; }
   .sub-category p {
@@ -253,15 +253,16 @@ input {
     color: #3a3a3a;
     color: #feef05;
     font-family: "Walter Turncoat", cursive;
-    margin-top: 7px; }
+    margin-top: 7px;
+    width: 70vw; }
   .sub-category h4 {
     font-size: 1.2rem;
     font-weight: 600;
     color: #81c534; }
-  .sub-category .button-container {
+  .sub-category .item-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-around; }
+    justify-content: space-between; }
 
 .container {
   display: flex;
@@ -306,3 +307,58 @@ input {
 .logout:active {
   position: relative;
   top: 1px; }
+
+.addOns {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  margin: 7px; }
+  .addOns .checkbox {
+    opacity: 0; }
+
+.plus {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap; }
+  .plus .fa-plus {
+    color: rgba(255, 255, 255, 0.63); }
+
+.customize-button {
+  color: rgba(255, 255, 255, 0.733);
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.add-ons {
+  color: white;
+  font-family: "Walter Turncoat", cursive; }
+
+.header-container {
+  display: flex;
+  justify-content: space-between; }
+  .header-container i {
+    color: rgba(128, 128, 128, 0.671);
+    margin: 10px; }
+
+.sub-header {
+  display: flex;
+  align-items: center;
+  margin: 7px; }
+  .sub-header h2 {
+    padding-left: 15px;
+    font-size: 2rem;
+    color: #eeeeee;
+    font-family: "Permanent Marker", cursive; }
+
+.line {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.904);
+  width: 90vw;
+  margin: 5px auto; }
+
+.cart-line {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.904);
+  width: 90vw;
+  margin: 5px auto; }

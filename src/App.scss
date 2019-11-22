@@ -136,6 +136,8 @@ $red: #fd2411;
 $green: #81c534;
 $yellow: #feef05;
 
+$font1: "Walter Turncoat", cursive;
+
 body {
   background: url("https://thumbs.dreamstime.com/b/blue-painted-wood-boards-texture-background-vintage-wooden-horizontal-planks-73672409.jpg")
     bottom left repeat;
@@ -224,7 +226,7 @@ body {
   justify-content: space-between;
   margin: 35px;
   margin-top: 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.582);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.65);
   img {
     height: auto;
     width: 25vw;
@@ -263,7 +265,7 @@ body {
   background-position: center;
 }
 
-input {
+.input {
   width: 70vw;
   height: 30px;
   background-color: rgba(0, 0, 0, 0);
@@ -275,7 +277,7 @@ input {
 
 ::placeholder {
   color: white;
-  opacity: .8;
+  opacity: 0.8;
 }
 
 // input:hover{}
@@ -287,7 +289,7 @@ input {
 .sub-category {
   padding-top: 10px;
   border-top: 0.5px solid rgba(0, 0, 0, 0.404);
-  margin: 10px;
+  margin: 10px 10px 0px 10px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.582);
   padding-bottom: 10px;
   p {
@@ -298,6 +300,7 @@ input {
     // font-family: 'Wendy One', sans-serif;
     font-family: "Walter Turncoat", cursive;
     margin-top: 7px;
+    width: 70vw;
   }
   h4 {
     font-size: 1.2rem;
@@ -305,10 +308,10 @@ input {
     color: $green;
   }
 
-  .button-container {
+  .item-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 }
 
@@ -326,9 +329,9 @@ input {
   }
   .h2 {
     font-size: 2rem;
-  color: rgb(238, 238, 238);
-  font-family: "Permanent Marker", cursive;
-  margin: 0 auto;
+    color: rgb(238, 238, 238);
+    font-family: "Permanent Marker", cursive;
+    margin: 0 auto;
   }
   .line {
     border-bottom: 1px solid white;
@@ -338,27 +341,95 @@ input {
 }
 
 .logout {
-	box-shadow: 0px 1px 0px 0px #f0f7fa;
-	background:linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
-	background-color:#33bdef;
-	border-radius:6px;
-	border:1px solid #057fd0;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:10px;
-	font-weight:bold;
-	padding:2px 10px;
-	text-decoration:none;
-  text-shadow:0px -1px 0px #5b6178;
+  box-shadow: 0px 1px 0px 0px #f0f7fa;
+  background: linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
+  background-color: #33bdef;
+  border-radius: 6px;
+  border: 1px solid #057fd0;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 10px;
+  text-decoration: none;
+  text-shadow: 0px -1px 0px #5b6178;
 }
 .logout:hover {
-	background:linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
-	background-color:#019ad2;
+  background: linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
+  background-color: #019ad2;
 }
 .logout:active {
-	position:relative;
-	top:1px;
+  position: relative;
+  top: 1px;
 }
 
+.addOns {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  margin: 7px;
+  .checkbox {
+    opacity: 0;
+  }
+}
+
+.plus {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .fa-plus {
+    color: rgba(255, 255, 255, 0.63);
+  }
+}
+
+.customize-button {
+  color: rgba(255, 255, 255, 0.733);
+  // background-color: rgba(128, 128, 128, 0.664);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-ons {
+  color: white;
+  font-family: $font1;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  i {
+    color: rgba(128, 128, 128, 0.671);
+    margin: 10px;
+  }
+}
+
+.sub-header {
+  display: flex;
+  align-items: center;
+  margin: 7px;
+  h2 {
+    padding-left: 15px;
+    font-size: 2rem;
+    color: rgb(238, 238, 238);
+    font-family: "Permanent Marker", cursive;
+  }
+}
+    .line {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.904);
+      width: 90vw;
+      margin: 5px auto;
+    }
+
+    .cart-line {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.904);
+      width: 90vw;
+      margin: 5px auto;
+    }
+
+//CHECKBOX STYLING

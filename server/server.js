@@ -26,6 +26,7 @@ app.get('/category/items/:category', ctrl.getItems)
 
 app.get('/cart', ctrl.getCart)
 app.post('/category/items', ctrl.addToCart)
+app.get('/add-ons', ctrl.getAddOns)
 
 
 massive(CONNECTION_STRING).then(database => {

@@ -1,49 +1,54 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { updateUserInfo } from '../ducks/reducer'
-import axios from 'axios'
-import Swal from 'sweetalert2'
-import {Link} from 'react-router-dom'
-import logo from '../assets/rancheritos_logo.png'
+import React from "react";
+import { connect } from "react-redux";
+import { updateUserInfo } from "../ducks/reducer";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
+import logo from "../assets/rancheritos_logo.png";
 
-const Header = props => {
-  const logout = () => {
-    axios.delete('/auth/logout').then(res => {
-      Swal.fire(res.data.message)
-    //   props.history.push('/')
-      props.updateUserInfo({
-        email: '',
-        name: '',
-        user_id: ''
-      })
-    })
-  }
+class Header extends React.Component {
+  state = {
+    cartCount: ""
+  };
 
-  const goBack = () => {
-    window.history.back();
-  }
+  logout = () => {
+    axios.delete("/auth/logout").then(res => {
+      Swal.fire(res.data.message);
+      //   props.history.push('/')
+      this.props.updateUserInfo({
+        email: "",
+        name: "",
+        user_id: ""
+      });
+    });
+  };
 
-  return (
-    <div className="header-container">
-      <div className='header'>
-        <i onClick={goBack} className="fas fa-arrow-circle-left fa-2x fa-gradient-two"></i>
-        <img src={logo} alt="logo"/>
-        <Link to='/'>
-        <button className="logout" onClick={logout}>Logout</button>
-        </Link>
-        <Link to='/cart'>
-          <button className="logout">cart</button>
-        </Link>
+  
+
+  render() {
+    return (
+      <div>
+        <div className="header-container">
+          <div className="header">
+            <img src={logo} alt="logo" />
+          </div>
+          <div className="top-right">
+            <Link to="/cart">
+              <h1></h1>
+              <i className="fas fa-cart-plus fa-2x"></i>
+            </Link>
+            <Link to="/">
+              <i className="fas fa-user fa-2x" onClick={this.logout}></i>
+            </Link>
+          </div>
+        </div>
       </div>
-    </div>
-  )
+    );
+  }
 }
 
 function mapStateToProps(reduxState) {
-  return reduxState
+  return reduxState;
 }
 
-export default connect(
-  mapStateToProps,
-  { updateUserInfo }
-)(Header)
+export default connect(mapStateToProps, { updateUserInfo })(Header);

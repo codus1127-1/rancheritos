@@ -38,6 +38,17 @@ module.exports = {
 
     getCart: (req, res) => {
         res.status(200).send(req.session.user.cart)
+    },
+
+    getAddOns: (req, res) => {
+        const database = req.app.get('db')
+        database.get_add_ons()
+        .then(result => {
+            res.status(200).send(result)
+            // console.log(result)
+        }).catch(error => {
+            console.log(error)
+        })
     }
 
 }
