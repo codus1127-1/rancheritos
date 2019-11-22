@@ -12,8 +12,9 @@ app.use(express.json())
 app.use(
     session({
     resave: true,
-    saveUninitialized: false,
-    secret: SECRET
+    saveUninitialized: true,
+    secret: SECRET,
+    cookie: {secure: false}
 }))
 
 app.post('/auth/register', authCtrl.register)
@@ -23,6 +24,7 @@ app.delete('/auth/logout', authCtrl.logout)
 app.get('/category', ctrl.getCategories)
 app.get('/category/items/:category', ctrl.getItems)
 
+app.get('/cart', ctrl.getCart)
 app.post('/category/items', ctrl.addToCart)
 
 

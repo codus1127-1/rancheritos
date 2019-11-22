@@ -31,6 +31,9 @@ const Header = props => {
         <Link to='/'>
         <button className="logout" onClick={logout}>Logout</button>
         </Link>
+        <Link to='/cart'>
+          <button className="logout">cart</button>
+        </Link>
       </div>
     </div>
   )

@@ -31,8 +31,13 @@ module.exports = {
 
     addToCart: (req, res) => {
         req.session.user.cart.push(req.body)
-        res.status(200).send(req.session.user.cart)
+        req.session.save()
+        res.status(200)
         console.log(req.session.user.cart)
+    },
+
+    getCart: (req, res) => {
+        res.status(200).send(req.session.user.cart)
     }
 
 }

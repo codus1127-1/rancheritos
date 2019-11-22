@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import {Link} from 'react-router-dom'
 
 class Category extends Component {
   state = {
@@ -19,8 +20,8 @@ class Category extends Component {
     });
   };
 
-  addToCart = () => {
-    axios.post('/category/items')
+  addToCart = (el) => {
+    axios.post('/category/items', el )
     .then(res => {
       console.log(res)
     })
@@ -37,8 +38,10 @@ class Category extends Component {
             </div>
             <p>{el.description}</p>
             <div className="button-container">
-              <button className="item-buttons">Customize</button>
-              <button onClick={(el)=> this.addToCart(el)} className="item-buttons">Add to Cart</button>
+              <Link to={`/item/${el.title}/customize`}>
+                <button className="item-buttons">Customize</button>
+              </Link>
+              <button onClick={()=> this.addToCart(el)} className="item-buttons">Add to Cart</button>
             </div>
           </div>
         </div>
