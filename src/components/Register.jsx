@@ -5,6 +5,7 @@ import axios from "axios";
 import { updateUserInfo } from "../ducks/reducer";
 import { connect } from "react-redux";
 import Swal from "sweetalert2";
+import logo from "../assets/rancheritos_logo.png";
 
 class Register extends Component {
   state = {
@@ -41,6 +42,8 @@ class Register extends Component {
   render() {
     return (
       <div className="register">
+          <div className='overlay'></div>
+           <img src={logo} alt="logo" />
         <input
           className="input"
           value={this.state.email}
@@ -69,7 +72,7 @@ class Register extends Component {
           placeholder="Retype password"
           type="password"
         />
-        <button onClick={() => this.register()}>Register</button>
+        <button onClick={() => this.register()}>Register!</button>
         <Link to="/">
           <h4>Already have an account? Login here</h4>
         </Link>

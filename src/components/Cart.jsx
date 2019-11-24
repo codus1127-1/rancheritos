@@ -51,7 +51,8 @@ class Cart extends Component {
       );
     });
     return (
-      <div>
+      <div className='cart'>
+          <div className='overlay'></div>
         <div className="sub-header">
           <i
             onClick={this.goBack}
@@ -65,12 +66,13 @@ class Cart extends Component {
 
         {cart}
         <div className="sub-category">
-          <div className="order-item">
-            <h4>Subtotal: {this.state.subtotal.toFixed(2)}</h4>
-            <h4>Tax: {this.state.tax.toFixed(2)}</h4>
-            <h4>Total: {this.state.total.toFixed(2)}</h4>
+          <div className="order-total">
+            <h4>Subtotal: ${this.state.subtotal.toFixed(2)}</h4>
+            <h4 className='tax'>Tax: ${this.state.tax.toFixed(2)}</h4>
+            <h3>Total: ${this.state.total.toFixed(2)}</h3>
           </div>
         </div>
+          <div className="checkout-button">proceed to payment</div>
       </div>
     );
   }

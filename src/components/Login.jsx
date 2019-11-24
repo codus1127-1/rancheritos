@@ -4,6 +4,7 @@ import axios from "axios";
 import { updateUserInfo } from "../ducks/reducer";
 import { connect } from "react-redux";
 import Swal from "sweetalert2";
+import logo from "../assets/rancheritos_logo.png";
 
 class Login extends Component {
   state = {
@@ -32,6 +33,8 @@ class Login extends Component {
   render() {
     return (
       <div className="register">
+        <div className='overlay'></div>
+        <img src={logo} alt="logo"/>
         <div className="login">
           <input
             className="input"

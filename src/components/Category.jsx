@@ -50,6 +50,7 @@ class Category extends Component {
       );
     });
     return <div>
+      <div className='overlay'></div>
        <div className="sub-header">
          <i onClick={this.goBack} className="fas fa-arrow-circle-left fa-2x fa-gradient-two"></i>
         <h2>{this.props.match.params.category}</h2>

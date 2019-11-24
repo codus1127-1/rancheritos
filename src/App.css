@@ -132,7 +132,6 @@ table {
 body {
   background: url("https://thumbs.dreamstime.com/b/blue-painted-wood-boards-texture-background-vintage-wooden-horizontal-planks-73672409.jpg") bottom left repeat;
   background-attachment: scroll;
-  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.411);
   background-position: cover; }
 
 .header {
@@ -145,6 +144,9 @@ body {
   padding-top: 20px; }
 
 .header img {
+  position: fixed;
+  top: 10px;
+  left: 10px;
   height: 80px;
   width: auto; }
 
@@ -170,6 +172,15 @@ body {
   justify-content: space-evenly;
   align-items: center;
   height: 100vh; }
+  .register img {
+    height: 120px;
+    width: auto; }
+  .register button {
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 1.5rem;
+    color: white;
+    font-family: "Wendy One", sans-serif; }
 
 .register a {
   text-decoration: none;
@@ -284,30 +295,6 @@ body {
     width: 90vw;
     margin: 5px auto; }
 
-.logout {
-  box-shadow: 0px 1px 0px 0px #f0f7fa;
-  background: linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
-  background-color: #33bdef;
-  border-radius: 6px;
-  border: 1px solid #057fd0;
-  display: inline-block;
-  cursor: pointer;
-  color: #ffffff;
-  font-family: Arial;
-  font-size: 10px;
-  font-weight: bold;
-  padding: 2px 10px;
-  text-decoration: none;
-  text-shadow: 0px -1px 0px #5b6178; }
-
-.logout:hover {
-  background: linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
-  background-color: #019ad2; }
-
-.logout:active {
-  position: relative;
-  top: 1px; }
-
 .addOns {
   display: flex;
   flex-direction: row;
@@ -362,3 +349,63 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.904);
   width: 90vw;
   margin: 5px auto; }
+
+.top-right h1 {
+  background-color: #fd2411;
+  color: #f5e3c9;
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+  text-align: center; }
+
+.top-right a {
+  text-decoration: none; }
+
+.checkout-button {
+  background-color: #feef05;
+  color: #222222;
+  height: 45px;
+  text-align: center;
+  position: fixed;
+  bottom: 0px;
+  font-family: "Permanent Marker", cursive;
+  font-size: 2.1rem;
+  width: 100%;
+  padding: 4px; }
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.411);
+  position: fixed;
+  top: 0;
+  z-index: -1; }
+
+.order-total {
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  justify-content: space-between;
+  font-family: "Walter Turncoat", cursive;
+  text-align: right;
+  margin-bottom: 100px; }
+  .order-total h4 {
+    color: white; }
+  .order-total .tax {
+    border-bottom: 2px solid white; }
+  .order-total h3 {
+    color: #81c534;
+    font-size: 2rem;
+    font-weight: 1000; }
+
+.logout {
+  height: 25px;
+  width: 80px;
+  background-color: rgba(128, 128, 128, 0.658);
+  position: fixed;
+  right: 10px;
+  top: 65px;
+  font-size: 1.4rem;
+  color: white;
+  font-family: "Walter Turncoat", cursive;
+  text-align: center; }

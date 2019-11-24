@@ -16,7 +16,7 @@ module.exports = {
     // console.log(user_id)
     db.add_hash({user_id: user_id[0].user_id, hash})
     req.session.user = {user_id: user_id[0].user_id, email, name, cart: []}
-    res.status(201).send({message: 'Welcome!', user: req.session.user})
+    res.status(201).send({message: `Hola ${req.session.user.name}, welcome to Rancheritos!`, user: req.session.user})
     console.log(req.session)
   },
 login: async (req, res) => {
@@ -35,7 +35,7 @@ login: async (req, res) => {
   }
   req.session.user = {user_id, email, name, cart: []}
   // console.log(req)
-  res.status(200).send({message: 'Welcome Back!', user: req.session.user})
+  res.status(200).send({message: `Hola ${req.session.user.name}, we have been awaiting your return!`, user: req.session.user})
 }, 
 logout: (req, res) => {
   req.session.destroy()
