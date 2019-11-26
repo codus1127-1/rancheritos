@@ -5,7 +5,7 @@ class Customize extends Component {
   state = {
     addOns: [],
     selected: [],
-    addOnToggle: false
+    
   };
 
   componentDidMount = () => {
@@ -28,26 +28,25 @@ class Customize extends Component {
       this.setState({
         selected: selected
       });
+      this.props.setAddOns(selected)
     } else {
-      this.setState({
-        selected: this.state.selected.filter(item => {
+        let selected = this.state.selected.filter(item => {
           return item.id !== el.id;
         })
+      this.setState({
+          selected: selected
       });
+      this.props.setAddOns(selected)
     }
   };
 
-  addOns = () => {
-    this.setState({
-      addOnToggle: !this.state.addOnToggle
-    });
-  };
+  
 
   render() {
     const addOns = this.state.addOns.map((el, i) => {
       return (
         <div className="add-ons-container" key={i}>
-          {this.state.addOnToggle ? (
+          {this.props.addOnToggle ? (
             <div className="addOns">
               <label
                 className="checkbox-label"
@@ -67,8 +66,8 @@ class Customize extends Component {
     return (
       <div>
         {addOns}
-        <div className="customize-button" onClick={() => this.addOns()}>
-          {!this.state.addOnToggle ? (
+        <div className="customize-button" onClick={() => this.props.toggleAddOns()}>
+          {!this.props.addOnToggle ? (
             <i className="fas fa-chevron-down fa-2x"></i>
           ) : (
             <i className="fas fa-chevron-up fa-2x"></i>

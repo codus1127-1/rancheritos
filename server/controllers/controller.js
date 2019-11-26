@@ -17,27 +17,25 @@ module.exports = {
         const result = await db.get_category_items(category)
         res.status(200).send(result)
         // console.log(result)
-        console.log(req.session.user.user_id)
+        // console.log(req.session.user.user_id)
     },
-
-    // addToCart: (req, res, next) => {
-    //     const db = req.app.get('db')
-    //     const {id} = req.params
-    //     db.add_to_cart([req.session.user.user_id, id])
-    //     .then(result => {
-    //         res.status(200).send(result)
-    //     })
-    // },
 
     addToCart: (req, res) => {
         req.session.user.cart.push(req.body)
         req.session.save()
-        res.status(200)
-        console.log(req.session.user.cart)
+        res.sendStatus(200)
+        // console.log(req.session.user.cart)
     },
 
     getCart: (req, res) => {
         res.status(200).send(req.session.user.cart)
+    },
+
+    deleteCart: (req, res) => {
+        const {index} = req.params
+        req.session.user.cart.splice(index, 1)
+        req.session.save()
+        res.sendStatus(200)
     },
 
     getAddOns: (req, res) => {
@@ -49,6 +47,44 @@ module.exports = {
         }).catch(error => {
             console.log(error)
         })
+    },
+
+    submitOrder: (req, res) => {
+        const database = req.app.get('db')
+        database.add_order(req.session.user.user_id, JSON.stringify(req.session.user.cart))
+        .then(() => {
+            req.session.user.cart = []
+            req.session.save()
+            res.sendStatus(200)
+        }).catch(error => {
+            console.log(error)
+        })
+    },
+
+    getOrders: (req, res, next) => {
+        const database = req.app.get('db')
+        database.get_orders()
+        .then(result => {
+            res.status(200).send(result)
+            console.log(results)
+        }).catch(error => {
+            console.log(error)
+        })
+    },
+
+    updateOrders: (req, res) => {
+        const database = req.app.get('db')
+        const {id} = req.params
+        database.update_orders(id)
+        .then(results => {
+            res.status(200).send(results)
+        }).catch(error => {
+            console.log(error)
+        })
+
     }
+    
+
+
 
 }

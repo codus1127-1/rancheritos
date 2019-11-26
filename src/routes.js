@@ -5,7 +5,7 @@ import Register from './components/Register'
 import Dash from './components/Dash'
 import Category from './components/Category';
 import Cart from './components/Cart'
-// import Customize from './components/Customize';
+import Admin from './components/Admin';
 
 export default (
     <Switch>
@@ -14,7 +14,7 @@ export default (
         <Route path='/dashboard' component={Dash} />
         <Route path='/category/:category' component={Category} />
         <Route path='/cart' component={Cart} />
-        {/* <Route path='/item/:item/customize/' component={Customize}/> */}
+        <Route path='/admin' component={Admin}/>
 
     </Switch>
 )

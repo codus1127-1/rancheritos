@@ -16,17 +16,28 @@ app.use(
     secret: SECRET,
     cookie: {secure: false}
 }))
-
+//Authentication
 app.post('/auth/register', authCtrl.register)
 app.post('/auth/login', authCtrl.login)
 app.delete('/auth/logout', authCtrl.logout)
 
+//Menu Categories
 app.get('/category', ctrl.getCategories)
 app.get('/category/items/:category', ctrl.getItems)
 
-app.get('/cart', ctrl.getCart)
+///Menu Items
 app.post('/category/items', ctrl.addToCart)
 app.get('/add-ons', ctrl.getAddOns)
+
+//Shopping Cart
+app.get('/cart', ctrl.getCart)
+app.delete('/cart/:index', ctrl.deleteCart)
+app.post('/order', ctrl.submitOrder)
+
+//Admin
+app.get('/orders', ctrl.getOrders)
+app.put('/order/:id', ctrl.updateOrders)
+
 
 
 massive(CONNECTION_STRING).then(database => {

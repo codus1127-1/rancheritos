@@ -30,14 +30,6 @@ class Header extends React.Component {
     });
   };
 
-  cartCount = () => {
-    axios.get("/cart").then(res => {
-      this.setState({
-        cartCount: res.data.length
-      });
-    });
-  };
-
   toggle = () => {
     this.setState({
       toggle: !this.state.toggle
@@ -49,16 +41,23 @@ class Header extends React.Component {
       // <div>
         <div className="header-container">
           {this.state.toggle ? (
-            <Link to="/">
-           <div onClick={this.logout} className="logout">logout</div>
-            </Link>
+            <div>
+              <Link to="/">
+             <div onClick={this.logout} className="logout">logout</div>
+              </Link>
+              <Link to="/admin">
+                <div onClick={this.toggle} className="logout2">admin</div>
+              </Link>
+            </div>
           ) : null}
           <div className="header">
-            <img src={logo} alt="logo" />
+            <Link to='/dashboard'>
+              <img src={logo} alt="logo" />
+            </Link>
           </div>
           <div className="top-right">
             <Link to="/cart">
-              <h1>{this.state.cartCount}</h1>
+              
               <i className="fas fa-cart-plus fa-2x"></i>
             </Link>
               <i className="fas fa-user fa-2x" onClick={()=> this.toggle()}></i>
