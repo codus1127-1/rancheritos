@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import {connect} from 'react-redux'
+import {handleCount} from '../ducks/reducer'
 
 class CartCount extends Component {
     constructor(props) {
@@ -15,18 +16,16 @@ class CartCount extends Component {
     }
 
     cartCount = () => {
-        axios.get("/cart").then(res => {
-          this.setState({
-            cartCount: res.data.length
-          });
-        });
+        this.setState({
+            cartCount: this.props.cartCount
+        })
       };
     
     render() {
         
         return (
             <div className='counter'>
-                <h1>{this.state.cartCount}</h1>
+                <h1>{this.props.carCount}</h1>
                 
                 
             </div>
@@ -38,4 +37,4 @@ const mapStateToProps = (reduxState) => {
    return reduxState
 }
 
-export default connect(mapStateToProps)(CartCount);
+export default connect(mapStateToProps, {handleCount})(CartCount);

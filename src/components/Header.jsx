@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { updateUserInfo } from "../ducks/reducer";
+import {handleCount} from "../ducks/reducer"
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
@@ -72,4 +73,4 @@ function mapStateToProps(reduxState) {
   return reduxState;
 }
 
-export default connect(mapStateToProps, { updateUserInfo })(Header);
+export default connect(mapStateToProps, { updateUserInfo, handleCount })(Header);

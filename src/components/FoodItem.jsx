@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Customize from "./Customize";
 import axios from "axios";
+import {connect} from 'react-redux'
 
 class FoodItem extends Component {
   constructor(props) {
@@ -81,4 +82,6 @@ class FoodItem extends Component {
   }
 }
 
-export default FoodItem;
+
+
+export default connect()(FoodItem);

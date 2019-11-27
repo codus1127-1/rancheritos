@@ -2,7 +2,10 @@ require('dotenv').config()
 const express = require('express')
 const massive = require('massive')
 const session = require('express-session')
-const {SERVER_PORT, CONNECTION_STRING, SECRET} = process.env
+const stripeLoader = require('stripe')
+
+const {SERVER_PORT, CONNECTION_STRING, SECRET, STRIPE_SECRET} = process.env
+
 const ctrl = require('./controllers/controller')
 const authCtrl = require('./controllers/authController')
 
@@ -38,9 +41,31 @@ app.post('/order', ctrl.submitOrder)
 app.get('/orders', ctrl.getOrders)
 app.put('/order/:id', ctrl.updateOrders)
 
+//Stripe End Points
+const stripe = new stripeLoader(STRIPE_SECRET);
 
+const charge = (token, amt) => {
+    return stripe.charges.create({
+        amount: +(amt * 100),
+        currency: 'usd',
+        source: token,
+        description: "Statement Description"
+    })
+}
+
+app.post('/auth/payment', async (req, res, next) => {
+    console.log(req.body)
+    try {
+        let data = await charge(req.body.token.id, req.body.amount);
+        console.log(data);
+        res.send("Charged");
+    } catch(e) {
+        console.log(e)
+        res.status(500)
+    }
+})
 
 massive(CONNECTION_STRING).then(database => {
     app.set('db', database)
     app.listen(SERVER_PORT, () => console.log(`listening on port ${SERVER_PORT}`))
-})
+}) 

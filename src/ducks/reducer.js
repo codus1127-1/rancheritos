@@ -30,7 +30,7 @@ export function handleCount(count) {
         case UPDATE_USER_INFO:
             return {...state, ...action.payload}
         case 'ADD_TO_CART':
-          return {...state, cartCount: action.payload.cartCount}
+          return {...state, ...action.payload}
       case 'REMOVE_FROM_CART': 
         return state.filter(cartItem=>cartItem.id !== action.payload.id)
       default: return state

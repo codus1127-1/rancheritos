@@ -135,6 +135,7 @@ table {
 $red: #fd2411;
 $green: #81c534;
 $yellow: #feef05;
+$black: rgb(34, 34, 34);
 
 $font1: "Walter Turncoat", cursive;
 $font2: "Permanent Marker", cursive;
@@ -189,8 +190,11 @@ body {
   top: 0px;
   width: 100%;
   // background-image: linear-gradient($green, $yellow);
+  // background-image: url('https://images.fabric.com/images/693/693/0473337.jpg');
   background-color: #273043;
   border-bottom: 2px solid $red;
+  background-size: cover;
+  background-position: center;
 }
 
 .register {
@@ -551,3 +555,100 @@ body {
   color: white;
   font-size: 2rem;
 }
+
+
+//STRIPE
+.form-container {
+  height: 60vh;
+  width:80vw;
+  // background-color: #273043da;
+  background-color: rgba(255, 255, 255, 0.863);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 20%;
+  left: 10%;
+}
+
+.back {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  font-size: 1.5rem;
+  height: 30px;
+  width: 30px;
+  font-weight: 700;
+  // background-color: red;
+  text-align: center;
+}
+
+.stripe-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 60vh;
+  z-index: 100;
+  
+  label {
+    color: rgb(17, 17, 17);
+  }
+
+  input {
+    width: 40vw;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: $black;
+    font-size: 1rem;
+    border-bottom: 1px solid $black;
+    margin-bottom: 20px;
+  }
+
+  button {
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 1.5rem;
+    color: $black;
+    font-family: "Wendy One", sans-serif;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+
+}
+
+.card-element {
+  background-color: $black;
+  width: 80%;
+  height: 30px;
+  font-size: 40px;
+  background: ghostwhite;
+  
+}
+
+.by-stripe {
+    width: 80%;
+    height: auto;
+}
+
+.overlay1 {
+  height: 100vh;
+  width: 100vw;
+  background: rgba(8, 8, 8, 0.589);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: .999999;
+  // transition: 1s;
+  //   -webkit-filter: blur(8px);
+  //   -moz-filter: blur(8px);
+  //   -o-filter: blur(8px);
+  //   -ms-filter: blur(8px);
+  //   filter: blur(8px);
+}
+
+
+
+
+

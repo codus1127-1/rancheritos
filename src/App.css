@@ -162,7 +162,9 @@ body {
   top: 0px;
   width: 100%;
   background-color: #273043;
-  border-bottom: 2px solid #fd2411; }
+  border-bottom: 2px solid #fd2411;
+  background-size: cover;
+  background-position: center; }
 
 .register {
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.342);
@@ -447,3 +449,71 @@ body {
   margin-top: 110px;
   color: white;
   font-size: 2rem; }
+
+.form-container {
+  height: 60vh;
+  width: 80vw;
+  background-color: rgba(255, 255, 255, 0.863);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 20%;
+  left: 10%; }
+
+.back {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  font-size: 1.5rem;
+  height: 30px;
+  width: 30px;
+  font-weight: 700;
+  text-align: center; }
+
+.stripe-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 60vh;
+  z-index: 100; }
+  .stripe-form label {
+    color: #111111; }
+  .stripe-form input {
+    width: 40vw;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: #222222;
+    font-size: 1rem;
+    border-bottom: 1px solid #222222;
+    margin-bottom: 20px; }
+  .stripe-form button {
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 1.5rem;
+    color: #222222;
+    font-family: "Wendy One", sans-serif;
+    padding-bottom: 10px;
+    padding-top: 10px; }
+
+.card-element {
+  background-color: #222222;
+  width: 80%;
+  height: 30px;
+  font-size: 40px;
+  background: ghostwhite; }
+
+.by-stripe {
+  width: 80%;
+  height: auto; }
+
+.overlay1 {
+  height: 100vh;
+  width: 100vw;
+  background: rgba(8, 8, 8, 0.589);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: .999999; }

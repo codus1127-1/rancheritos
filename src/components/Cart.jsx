@@ -1,13 +1,20 @@
 import React, { Component } from "react";
 import axios from "axios";
-import StripeCheckout from 'react-stripe-checkout'
+import {toast} from 'react-toastify'
+import { StripeProvider, Elements } from "react-stripe-elements";
+import StripeForm from "./StripeForm";
+import Swal from "sweetalert2";
+
+toast.configure()
 
 class Cart extends Component {
   state = {
     cart: [],
     subtotal: 0,
     tax: 0,
-    total: 0
+    total: 0,
+    toggle: false,
+    toggle2: false
   };
 
   componentDidMount = () => {
@@ -46,12 +53,24 @@ class Cart extends Component {
 
   submitOrder = () => {
     axios.post('/order').then(() => {
+        Swal.fire({title: 'Thank you for choosing Rancheritos! Your order will be ready in 15 minutes!',
+    icon: 'success'})
       this.props.history.push("/dashboard");
     });
   };
 
-  handleToken = (token, addresses) => {
-    
+  toggle = () => {
+      this.setState({
+          toggle: !this.state.toggle
+        
+      })
+  }
+
+  toggle2 = () => {
+      this.setState({
+          toggle2: true
+      })
+    //   toast('Succuss', {type: 'success'}) 
   }
 
   render() {
@@ -104,15 +123,26 @@ class Cart extends Component {
             <h4>Subtotal: ${this.state.subtotal.toFixed(2)}</h4>
             <h4 className="tax">Tax: ${this.state.tax.toFixed(2)}</h4>
             <h3>Total: ${this.state.total.toFixed(2)}</h3>
+           {this.state.toggle ? <StripeProvider apiKey="pk_test_qTJVfAucmSExNH1BpCMUyv3y00HBLBE6Ug">
+              <Elements>
+                <StripeForm
+                toggle={this.toggle}
+                toggle2={this.toggle2}
+                total={this.state.total.toFixed(2)}
+                subtotal={this.state.subtotal.toFixed(2)}
+                tax={this.state.tax.toFixed(2)}
+                />
+              </Elements>
+            </StripeProvider> : null} 
+            <div className="stripe">
+          </div>
+        
           </div>
         </div>
-        <StripeCheckout
-        stripeKey='sk_test_XGmVUGg8cCJrWQftQuq7ZMGi004rq5T5AT'
-        // token={ }
-        />
-        <div onClick={() => this.submitOrder()} className="checkout-button">
+        {this.state.toggle ? null : <div onClick={() => this.toggle()} className="checkout-button">
           proceed to payment
-        </div>
+        </div> }
+        {this.state.toggle2 ? <div onClick={()=>this.submitOrder()} className="checkout-button">Submit Order</div> : null}
       </div>
     );
   }
