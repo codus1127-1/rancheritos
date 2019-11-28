@@ -1,31 +1,14 @@
 import React, { Component } from 'react';
-import axios from 'axios'
 import {connect} from 'react-redux'
-import {handleCount} from '../ducks/reducer'
+// import {addCount, removeCount} from '../ducks/reducer'
 
 class CartCount extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            cartCount: 0
-        }
-    }
-
-    componentDidMount = ()=> {
-        this.cartCount()
-    }
-
-    cartCount = () => {
-        this.setState({
-            cartCount: this.props.cartCount
-        })
-      };
     
     render() {
         
         return (
             <div className='counter'>
-                <h1>{this.props.carCount}</h1>
+                <h1>{this.props.cartCount}</h1>
                 
                 
             </div>
@@ -33,8 +16,12 @@ class CartCount extends Component {
     }
 }
 
-const mapStateToProps = (reduxState) => {
-   return reduxState
-}
+function mapStateToProps( state ) {
+    const { cartCount } = state;
+  
+    return {
+      cartCount
+    };
+  }
 
-export default connect(mapStateToProps, {handleCount})(CartCount);
+export default connect(mapStateToProps)(CartCount);

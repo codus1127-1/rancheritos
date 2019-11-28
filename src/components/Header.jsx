@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { updateUserInfo } from "../ducks/reducer";
-import {handleCount} from "../ducks/reducer"
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
@@ -9,7 +8,6 @@ import logo from "../assets/rancheritos_logo.png";
 
 class Header extends React.Component {
   state = {
-    cartCount: 0,
     toggle: false
   };
   // componentDidUpdate = (prevProps, prevState)=> {
@@ -73,4 +71,4 @@ function mapStateToProps(reduxState) {
   return reduxState;
 }
 
-export default connect(mapStateToProps, { updateUserInfo, handleCount })(Header);
+export default connect(mapStateToProps, { updateUserInfo })(Header);

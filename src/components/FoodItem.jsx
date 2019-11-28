@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Customize from "./Customize";
 import axios from "axios";
 import {connect} from 'react-redux'
+import {addCount} from '../ducks/reducer'
 
 class FoodItem extends Component {
   constructor(props) {
@@ -13,6 +14,8 @@ class FoodItem extends Component {
       added: false
     };
   }
+
+  
 
   addOns = () => {
     this.setState({
@@ -29,6 +32,7 @@ class FoodItem extends Component {
         el: { ...this.props.el, addOns: [] }
       });
       this.plusClicked();
+      this.props.addCount(res.data)
     });
   };
 
@@ -82,6 +86,14 @@ class FoodItem extends Component {
   }
 }
 
+function mapStateToProps( state ) {
+    const { cartCount } = state;
+  
+    return {
+      cartCount
+    };
+  }
 
 
-export default connect()(FoodItem);
+
+export default connect(mapStateToProps, {addCount})(FoodItem);

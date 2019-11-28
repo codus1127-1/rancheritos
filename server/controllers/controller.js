@@ -23,7 +23,7 @@ module.exports = {
     addToCart: (req, res) => {
         req.session.user.cart.push(req.body)
         req.session.save()
-        res.sendStatus(200)
+        res.status(200).send({cartCount: req.session.user.cart.length})
         // console.log(req.session.user.cart)
     },
 
@@ -35,7 +35,7 @@ module.exports = {
         const {index} = req.params
         req.session.user.cart.splice(index, 1)
         req.session.save()
-        res.sendStatus(200)
+        res.status(200).send({cartCount: req.session.user.cart.length})
     },
 
     getAddOns: (req, res) => {

@@ -8,7 +8,8 @@ const initialState = {
   
   // ACTION CONSTANTS
 const UPDATE_USER_INFO = 'UPDATE_USER_INFO'
-const UPDATE_CART_COUNT = 'UPDATE_CART_COUNT'
+const ADD_TO_CART = 'ADD_TO_CART'
+const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 
 // ACTION BUILDERS
 export function updateUserInfo(userObj) {
@@ -18,21 +19,30 @@ export function updateUserInfo(userObj) {
   }
 }
 
-export function handleCount(count) {
+export function addCount(count) {
   return {
-    type: UPDATE_CART_COUNT,
+    type: ADD_TO_CART,
+    payload: count
+  }
+}
+
+export function removeCount(count) {
+  return {
+    type: REMOVE_FROM_CART,
     payload: count
   }
 }
   
   export default function reducer(state = initialState, action) {
+    console.log(state)
+    console.log(action)
     switch(action.type) {
         case UPDATE_USER_INFO:
             return {...state, ...action.payload}
-        case 'ADD_TO_CART':
+        case ADD_TO_CART:
           return {...state, ...action.payload}
-      case 'REMOVE_FROM_CART': 
-        return state.filter(cartItem=>cartItem.id !== action.payload.id)
+      case REMOVE_FROM_CART: 
+         return {...state, ...action.payload}
       default: return state
     }
   }

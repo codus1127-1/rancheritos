@@ -317,6 +317,10 @@ body {
   .plus .fa-plus {
     color: rgba(255, 255, 255, 0.63); }
 
+.plus:active {
+  color: red;
+  transition: 1s; }
+
 .customize-button {
   color: rgba(255, 255, 255, 0.733);
   display: flex;

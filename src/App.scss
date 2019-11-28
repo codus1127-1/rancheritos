@@ -383,6 +383,11 @@ body {
   }
 }
 
+.plus:active {
+  color: red;
+  transition: 1s;
+}
+
 .customize-button {
   color: rgba(255, 255, 255, 0.733);
   // background-color: rgba(128, 128, 128, 0.664);

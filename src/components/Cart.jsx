@@ -4,6 +4,8 @@ import {toast} from 'react-toastify'
 import { StripeProvider, Elements } from "react-stripe-elements";
 import StripeForm from "./StripeForm";
 import Swal from "sweetalert2";
+import {connect} from 'react-redux'
+import {removeCount} from '../ducks/reducer'
 
 toast.configure()
 
@@ -45,8 +47,10 @@ class Cart extends Component {
   };
 
   deleteCart = i => {
-    axios.delete(`/cart/${i}`).then(() => {
+    axios.delete(`/cart/${i}`).then(res => {
       this.getCart();
+      this.props.removeCount(res.data)
+
       // window.location.reload()
     });
   };
@@ -148,4 +152,12 @@ class Cart extends Component {
   }
 }
 
-export default Cart;
+function mapStateToProps( state ) {
+    const { cartCount } = state;
+  
+    return {
+      cartCount
+    };
+  }
+
+export default connect(mapStateToProps, {removeCount}) (Cart);
