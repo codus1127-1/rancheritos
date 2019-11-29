@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { updateUserInfo } from "../ducks/reducer";
+import { updateUserInfo, clearCount } from "../ducks/reducer";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
@@ -20,11 +20,12 @@ class Header extends React.Component {
   logout = () => {
     axios.delete("/auth/logout").then(res => {
       Swal.fire(res.data.message);
-      //   props.history.push('/')
+      this.props.clearCount()
       this.props.updateUserInfo({
         email: "",
         name: "",
-        user_id: ""
+        user_id: "",
+        is_admin: false
       });
     });
   };
@@ -71,4 +72,4 @@ function mapStateToProps(reduxState) {
   return reduxState;
 }
 
-export default connect(mapStateToProps, { updateUserInfo })(Header);
+export default connect(mapStateToProps, { updateUserInfo, clearCount })(Header);

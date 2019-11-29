@@ -383,10 +383,12 @@ body {
   }
 }
 
-.plus:active {
-  color: red;
-  transition: 1s;
+.fa-plus:active {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.151);
+  border-radius: 50%;
 }
+
 
 .customize-button {
   color: rgba(255, 255, 255, 0.733);
@@ -410,6 +412,20 @@ body {
     // margin-top: 100px;
   }
 }
+
+.fa-cart-plus:active {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.151);
+  border-radius: 50%;
+  text-decoration: none;
+}
+
+.fa-user:active {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.151);
+  border-radius: 50%;
+}
+
 
 .sub-header {
   display: flex;
@@ -532,12 +548,24 @@ body {
   height: 30px;
 }   
 
+.fa-minus:active {
+  color: $red;
+  background-color: rgba(252, 5, 5, 0.151);
+  border-radius: 50%;
+}
+
 .fa-check {
   color: $green;
 }
 
 .fa-arrow-circle-left {
   margin-top: 110px;
+}
+
+.fa-arrow-circle-left:active {
+  color: rgba(255, 255, 255, 0.63);
+  background-color: rgba(255, 255, 255, 0.151);
+  border-radius: 50%;
 }
 
 

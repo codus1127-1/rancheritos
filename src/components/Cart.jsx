@@ -5,7 +5,7 @@ import { StripeProvider, Elements } from "react-stripe-elements";
 import StripeForm from "./StripeForm";
 import Swal from "sweetalert2";
 import {connect} from 'react-redux'
-import {removeCount} from '../ducks/reducer'
+import {removeCount, clearCount} from '../ducks/reducer'
 
 toast.configure()
 
@@ -57,8 +57,8 @@ class Cart extends Component {
 
   submitOrder = () => {
     axios.post('/order').then(() => {
-        Swal.fire({title: 'Thank you for choosing Rancheritos! Your order will be ready in 15 minutes!',
-    icon: 'success'})
+        Swal.fire({title: 'Thank you for choosing Rancheritos!', message: 'Your order has been received', type: 'success'})
+      this.props.clearCount()
       this.props.history.push("/dashboard");
     });
   };
@@ -160,4 +160,4 @@ function mapStateToProps( state ) {
     };
   }
 
-export default connect(mapStateToProps, {removeCount}) (Cart);
+export default connect(mapStateToProps, {removeCount, clearCount}) (Cart);

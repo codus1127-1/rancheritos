@@ -23,7 +23,11 @@ class Login extends Component {
       .then(res => {
         this.props.updateUserInfo(res.data.user);
         Swal.fire(res.data.message);
-        this.props.history.push("/dashboard");
+        if (res.data.user.is_admin) {
+          this.props.history.push("/admin");
+        } else {
+          this.props.history.push("/dashboard");
+        }
       })
       .catch(err => {
         Swal.fire(err.response.data.message);
@@ -33,8 +37,8 @@ class Login extends Component {
   render() {
     return (
       <div className="register">
-        <div className='overlay'></div>
-        <img src={logo} alt="logo"/>
+        <div className="overlay"></div>
+        <img src={logo} alt="logo" />
         <div className="login">
           <input
             className="input"

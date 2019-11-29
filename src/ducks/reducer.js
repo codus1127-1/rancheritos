@@ -2,7 +2,7 @@ const initialState = {
     email: '',
     name: '',
     user_id: '',
-    profile_img: '',
+    is_admin: false,
     cartCount: 0
   }
   
@@ -10,6 +10,7 @@ const initialState = {
 const UPDATE_USER_INFO = 'UPDATE_USER_INFO'
 const ADD_TO_CART = 'ADD_TO_CART'
 const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
+const CLEAR_CART = 'CLEAR_CART'
 
 // ACTION BUILDERS
 export function updateUserInfo(userObj) {
@@ -32,17 +33,24 @@ export function removeCount(count) {
     payload: count
   }
 }
+
+export function clearCount(clear) {
+  return {
+    type: CLEAR_CART,
+    payload: clear
+  }
+}
   
   export default function reducer(state = initialState, action) {
-    console.log(state)
-    console.log(action)
     switch(action.type) {
         case UPDATE_USER_INFO:
             return {...state, ...action.payload}
         case ADD_TO_CART:
           return {...state, ...action.payload}
-      case REMOVE_FROM_CART: 
+        case REMOVE_FROM_CART: 
          return {...state, ...action.payload}
+        case CLEAR_CART: 
+          return {...state, cartCount: 0}
       default: return state
     }
   }

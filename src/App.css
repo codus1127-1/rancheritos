@@ -317,9 +317,10 @@ body {
   .plus .fa-plus {
     color: rgba(255, 255, 255, 0.63); }
 
-.plus:active {
-  color: red;
-  transition: 1s; }
+.fa-plus:active {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.151);
+  border-radius: 50%; }
 
 .customize-button {
   color: rgba(255, 255, 255, 0.733);
@@ -337,6 +338,17 @@ body {
   .header-container i {
     color: rgba(128, 128, 128, 0.671);
     margin: 10px; }
+
+.fa-cart-plus:active {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.151);
+  border-radius: 50%;
+  text-decoration: none; }
+
+.fa-user:active {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.151);
+  border-radius: 50%; }
 
 .sub-header {
   display: flex;
@@ -439,11 +451,21 @@ body {
   width: 30px;
   height: 30px; }
 
+.fa-minus:active {
+  color: #fd2411;
+  background-color: rgba(252, 5, 5, 0.151);
+  border-radius: 50%; }
+
 .fa-check {
   color: #81c534; }
 
 .fa-arrow-circle-left {
   margin-top: 110px; }
+
+.fa-arrow-circle-left:active {
+  color: rgba(255, 255, 255, 0.63);
+  background-color: rgba(255, 255, 255, 0.151);
+  border-radius: 50%; }
 
 .admin {
   margin-top: 110px;

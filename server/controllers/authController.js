@@ -28,12 +28,12 @@ login: async (req, res) => {
     return res.status(401).send({message: 'email does not exist'})
   }
   const foundUser = await db.find_hash([email])
-  const {hash, user_id, name} = foundUser[0]
+  const {hash, user_id, is_admin, name} = foundUser[0]
   const result = bcrypt.compareSync(password, hash)
   if (!result) {
     return res.status(401).send({message: 'password incorrect'})
   }
-  req.session.user = {user_id, email, name, cart: []}
+  req.session.user = {user_id, email, name, is_admin, cart: []}
   // console.log(req)
   res.status(200).send({message: `Hola ${req.session.user.name}, we have been awaiting your return!`, user: req.session.user})
 }, 

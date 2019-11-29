@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { connect } from "react-redux";
 
 class Admin extends Component {
   constructor(props) {
@@ -10,20 +11,31 @@ class Admin extends Component {
   }
 
   componentDidMount = () => {
+    this._ismounted = true
     this.getOrders();
   };
+
+  componentWillUnmount = () => {
+    this._ismounted = false
+  }
 
   getOrders = () => {
     axios.get("/orders").then(res => {
       this.setState({
         orders: res.data
       });
+      setTimeout(() => {
+        if (this._ismounted) {
+          this.getOrders();
+          console.log("hit");
+        }
+      }, 10000);
     });
   };
 
-  fulfilledOrders = (el) => {
-      axios.put(`/order/${el.id}`)
-  }
+  fulfilledOrders = el => {
+    axios.put(`/order/${el.id}`);
+  };
 
   render() {
     const orders = this.state.orders.map((el, i) => {
@@ -46,9 +58,10 @@ class Admin extends Component {
                     <p>{el.description}</p>
                   </div>
                 );
-            })}
-            <button onClick={()=> this.fulfilledOrders(el)}>fulfilled</button>
-
+              })}
+              <button onClick={() => this.fulfilledOrders(el)}>
+                fulfilled
+              </button>
               <br />
               ); })}
             </div>
@@ -67,4 +80,12 @@ class Admin extends Component {
   }
 }
 
-export default Admin;
+function mapStateToProps(state) {
+  const { is_admin } = state;
+
+  return {
+    is_admin
+  };
+}
+
+export default connect(mapStateToProps)(Admin);
