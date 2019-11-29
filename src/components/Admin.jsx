@@ -1,28 +1,30 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
+import Orders from "./Orders";
 
 class Admin extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      orders: []
+      newOrders: [],
+      readyOrders: []
     };
   }
 
   componentDidMount = () => {
-    this._ismounted = true
+    this._ismounted = true;
     this.getOrders();
   };
 
   componentWillUnmount = () => {
-    this._ismounted = false
-  }
+    this._ismounted = false;
+  };
 
   getOrders = () => {
     axios.get("/orders").then(res => {
       this.setState({
-        orders: res.data
+        ...res.data
       });
       setTimeout(() => {
         if (this._ismounted) {
@@ -34,49 +36,60 @@ class Admin extends Component {
   };
 
   fulfilledOrders = el => {
-    axios.put(`/order/${el.id}`);
+    axios.put(`/order/${el.id}`, {action: 'ready'})
+    .then(()=> {
+      axios.get('/orders').then(res => {
+        this.setState({
+          ...res.data
+        })
+      })
+    })
+  };
+
+  pickedUpOrders = el => {
+    axios.put(`/order/${el.id}`, {action: 'picked up'})
+    .then(()=> {
+      axios.get('/orders').then(res => {
+        this.setState({
+          ...res.data
+        })
+      })
+    })
   };
 
   render() {
-    const orders = this.state.orders.map((el, i) => {
-      console.log(el.fulfilled);
+    const newOrders = this.state.newOrders.map((el, i) => {
       return (
-        <div key={i}>
-          <div className="sub-category">
-            <div className="order-item">
-              <h2>{el.name}</h2>
-              <h4> {el.id}</h4>
-              <h2>{el.fulfilled}</h2>
-            </div>
-            <div className="plus">
-              {el.order_items.map((el, i) => {
-                return (
-                  <div key={i}>
-                    <p>{el.id}</p>
-                    <p>{el.title}</p>
-                    <p>{el.price}</p>
-                    <p>{el.description}</p>
-                  </div>
-                );
-              })}
-              <button onClick={() => this.fulfilledOrders(el)}>
-                fulfilled
-              </button>
-              <br />
-              ); })}
-            </div>
-          </div>
-        </div>
-      );
-    });
+      <Orders 
+      el={el}
+      i={i}
+      isReady={false}
+      buttonAction={this.fulfilledOrders}
+      />)
+  })
+  const readyOrders = this.state.readyOrders.map((el, i) => {
+    return (
+      <Orders 
+      el={el}
+      i={i}
+      isReady={true}
+      buttonAction={this.pickedUpOrders}
+      />
+    )
+  })
     return (
       <div>
         <div className="overlay"></div>
-        <h2 className="order-title">Orders</h2>
-        {orders}
+        <h2 className="order-title">Orders</h2> 
+        <table>
+          <tr>
+            <td>{newOrders}</td>
+            <td>{readyOrders}</td>
+          </tr>
+        </table>
         {/* <p className='admin'>{JSON.stringify(this.state.orders)}</p> */}
       </div>
-    );
+    ); 
   }
 }
 

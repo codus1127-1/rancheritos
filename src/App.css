@@ -543,3 +543,6 @@ body {
   top: 0;
   left: 0;
   z-index: .999999; }
+
+table {
+  width: 100%; }
