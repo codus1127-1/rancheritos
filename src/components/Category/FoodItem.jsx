@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Customize from "./Customize";
 import axios from "axios";
 import {connect} from 'react-redux'
-import {addCount} from '../ducks/reducer'
+import {addCount} from '../../ducks/reducer'
 
 class FoodItem extends Component {
   constructor(props) {
@@ -52,8 +52,8 @@ class FoodItem extends Component {
 
   render() {
     return (
-      <div>
-        <div key={this.props.index}>
+      <div className='outer-dash-container'>
+        <div className='dash2' key={this.props.index}>
           <div className="sub-category">
             <div className="order-item">
               <h2>{this.state.el.title}</h2>

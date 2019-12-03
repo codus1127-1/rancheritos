@@ -1,0 +1,75 @@
+.fa-arrow-circle-left {
+    color: rgba(255, 255, 255, 0.411);
+  }
+
+  .category {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 35px;
+    margin-top: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.65);
+    img {
+      height: auto;
+      width: 25vw;
+      // margin-top: 10px;
+      margin-bottom: 5px;
+    }
+  }
+  
+  .dash a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .dash h2 {
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.900);
+    font-family: "Permanent Marker", cursive;
+  }
+
+  .dash h2:active {
+    color: rgba(255, 255, 255, 0.582);
+  }
+
+  
+.hero {
+  background-image: url("https://www.bajafresh.com/assets/img/baja-header.jpg");
+  height: 25vh;
+  margin: 10px;
+  margin-top: 110px;
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  // padding-bottom: 10px;
+  .dash-title{
+    display: flex;
+  flex-direction: column;
+    
+    .h1 {
+      font-size: 2.5rem;
+      color: yellow;
+      font-family: "Permanent Marker", cursive;
+      margin: 0px auto;
+      border-bottom: 1px solid $yellow;
+      margin-bottom: 15px;
+    }
+    .h2 {
+      font-size: 2rem;
+      color: rgba(255, 255, 255, 0.9);
+      font-family: "Permanent Marker", cursive;
+      margin: 0 auto;
+    }
+    .line {
+      border-bottom: 1px solid white;
+      width: 90vw;
+      margin: 5px auto;
+    }
+
+  }
+}
+

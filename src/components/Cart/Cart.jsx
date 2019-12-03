@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import axios from "axios";
 import {toast} from 'react-toastify'
 import { StripeProvider, Elements } from "react-stripe-elements";
-import StripeForm from "./StripeForm";
+import StripeForm from "../Stripe/StripeForm";
 import Swal from "sweetalert2";
 import {connect} from 'react-redux'
-import {removeCount, clearCount} from '../ducks/reducer'
+import {removeCount, clearCount} from '../../ducks/reducer'
 
 toast.configure()
 
@@ -81,7 +81,7 @@ class Cart extends Component {
     const cart = this.state.cart.map((el, i) => {
       // console.log(el.addOns.map(el => console.log(el.title)).title)
       return (
-        <div key={i}>
+        <div className='dash2' key={i}>
           <div className="sub-category">
             <div className="order-item">
               <h2>{el.title}</h2>
@@ -112,6 +112,7 @@ class Cart extends Component {
     return (
       <div className="cart">
         <div className="overlay"></div>
+        <div className="white-space"></div>
         <div className="sub-header">
           <i
             onClick={this.goBack}
@@ -121,7 +122,9 @@ class Cart extends Component {
         </div>
         <div className="cart-line"></div>
 
-        {cart}
+        <div className="mapped">
+          {cart}
+        </div>
         <div className="sub-category">
           <div className="order-total">
             <h4>Subtotal: ${this.state.subtotal.toFixed(2)}</h4>

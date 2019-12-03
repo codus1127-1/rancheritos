@@ -1,0 +1,122 @@
+.form-container {
+    height: 60vh;
+    width:80vw;
+    // background-color: #273043da;
+    background-color: rgba(255, 255, 255, 0.794);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -30vh;
+    margin-left: -40vw;
+    z-index: 5;
+    max-width: 450px;
+    max-height: 550px;
+
+  }
+  
+  .back {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 1.5rem;
+    height: 30px;
+    width: 30px;
+    font-weight: 700;
+    // background-color: red;
+    text-align: center;
+  }
+  
+  .stripe-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 60vh;
+    z-index: 100;
+    font-size: 1.4rem;
+    
+    label {
+      color: rgb(17, 17, 17);
+    }
+  
+    button {
+      border: none;
+      background-image: linear-gradient(to top right, rgba(0, 0, 0, 0.205) , rgba(0, 0, 0, 0));
+      font-size: 1.5rem;
+      color: rgba(0, 0, 0, 0.698);
+      font-family: "Wendy One", sans-serif;
+      margin-bottom: 30px;
+      margin-top: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.075);
+      border-radius: 15px;
+      padding: 10px;
+    }
+    button:active{
+        background-image: linear-gradient(to top right, rgba(0, 0, 0, 0),  rgba(0, 0, 0, 0.205))
+    }
+  
+  }
+
+  .card-info {
+      width: 90%;
+      height: 15%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+  }
+  
+  .card-element {
+    background-color: $black;
+    width: 80%;
+    height: 30px;
+    font-size: 40px;
+    background: ghostwhite;
+    
+  }
+  
+  .by-stripe {
+      width: 80%;
+      height: auto;
+      margin-bottom: 10px;
+  }
+  
+  .overlay1 {
+    height: 100vh;
+    width: 100vw;
+    background: rgba(8, 8, 8, 0.726);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4;
+  }
+
+  .stripe-total {
+      height: 17vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: right;
+      padding-bottom: 20px;
+
+      h2 {
+          color: black;
+          font-family: $font1;
+          font-size: 1.5rem;
+          font-weight: 1000;
+      }
+  }
+
+  .stripe-line {
+      border-bottom: 1px solid black;
+      width: 110%;
+      margin-bottom: 10px;
+  }
+
+  .stripe-line-2 {
+    border-bottom: 1px solid black;
+    width: 80%;
+}

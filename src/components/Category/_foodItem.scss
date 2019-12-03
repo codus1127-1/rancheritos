@@ -1,0 +1,90 @@
+.sub-header {
+  display: flex;
+  align-items: center;
+  margin: 7px;
+  h2 {
+    margin-top: 110px;
+    padding-left: 15px;
+    padding-bottom: 5px;
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.900);
+    font-family: "Permanent Marker", cursive;
+  }
+}
+
+.sub-category h2 {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: "Permanent Marker", cursive;
+  }
+  
+  .order-item {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .sub-category {
+  padding-top: 10px;
+  border-top: 0.5px solid rgba(0, 0, 0, 0.404);
+  margin: 10px 10px 0px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.582);
+  padding-bottom: 10px;
+  p {
+    padding-bottom: 10px;
+    color: rgb(58, 58, 58);
+    // font-weight: 600;
+    color: $yellow;
+    // font-family: 'Wendy One', sans-serif;
+    font-family: "Walter Turncoat", cursive;
+    margin-top: 7px;
+    width: 70vw;
+  }
+  h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: $green;
+  }
+
+  .item-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.plus {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .fa-plus {
+    color: rgba(255, 255, 255, 0.63);
+  }
+}
+
+.fa-plus:active {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.151);
+  border-radius: 50%;
+}
+
+.line {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.904);
+  width: 90vw;
+  margin: 5px auto;
+}
+
+.fa-check {
+  color: $green;
+}
+
+.fa-arrow-circle-left {
+  margin-top: 110px;
+}
+
+.fa-arrow-circle-left:active {
+  color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.151);
+  border-radius: 50%;
+}

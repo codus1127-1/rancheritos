@@ -30,12 +30,17 @@ class Dash extends Component {
         <div className="container">
           <div className='overlay'></div>
           <div className="hero"></div>
-          <h1>MENU</h1>
-          <h2 className='h2'>CATEGORIES:
-            <div className="line"></div>
-          </h2>
+          <div className="white-space"></div>
+          <div className="dash-title">
+            <h1 className='h1'>MENU</h1>
+            <h2 className='h2'>CATEGORIES:
+              <div className="line"></div>
+            </h2>
+          </div>
 
-            {categories}
+            <div className="mapped">
+              {categories}
+            </div>
         </div>
     )
   }

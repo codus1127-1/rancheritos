@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 // import './Register.css'
 import axios from "axios";
-import { updateUserInfo } from "../ducks/reducer";
+import { updateUserInfo } from "../../ducks/reducer";
 import { connect } from "react-redux";
 import Swal from "sweetalert2";
-import logo from "../assets/rancheritos_logo.png";
+import logo from "../../assets/rancheritos_logo.png";
 
 class Register extends Component {
   state = {

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { CardElement, injectStripe } from "react-stripe-elements";
 import Swal from "sweetalert2";
-import stripeImg from '../assets/stripe.png'
+import stripeImg from '../../assets/stripe.png'
 
 class StripeForm extends Component {
   constructor(props) {
@@ -39,8 +39,6 @@ class StripeForm extends Component {
               icon: 'error'
           })
       }
-     
-      // redirect, clear inputs, thank alert, toast
       
     } catch (e) {
       throw e;
@@ -67,26 +65,17 @@ class StripeForm extends Component {
                 <form className="stripe-form" onSubmit={this.handleSubmit}>
                     <div onClick={()=>this.props.toggle()} className="back">X</div>
                   <img className="by-stripe" src={stripeImg} alt="stripe" />
-                  <h1> Subtotal: ${this.props.subtotal}</h1>
-                  <h1> Tax: ${this.props.tax}</h1>
-                  {/* <label>Order Total: </label> */}
-                  <h1> Total: ${this.props.total}</h1>
-                  {/* <label>Name</label>
-                  <input
-                    type="text"
-                    className="name-input"
-                    value={this.state.name}
-                    onChange={e => this.handleChange("name", e.target.value)}
-                  />
-                  <label>Amount (8 $USD)</label>
-                  <input
-                    type="text"
-                    className="value-input"
-                    value={this.state.amount}
-                    onChange={e => this.handleChange("amount", e.target.value)}
-                  /> */}
-                  <label>Card Info</label>
-                  <CardElement className="card-element" />
+                  <div className="stripe-total">
+                    <h1> Subtotal: ${this.props.subtotal}</h1>
+                    <h1> Tax: ${this.props.tax}</h1>
+                    <div className="stripe-line"></div>
+                    <h2> Total: ${this.props.total}</h2>
+                  </div>
+                  <div className="card-info">
+                    <label>Card Info</label>
+                    <div className="stripe-line-2"></div>
+                    <CardElement className="card-element" />
+                  </div>
                   <button className="submit-btn">Confirm Payment</button>
                 </form>
               </main>

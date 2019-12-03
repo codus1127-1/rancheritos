@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { updateUserInfo, clearCount } from "../ducks/reducer";
+import { updateUserInfo, clearCount } from "../../ducks/reducer";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
-import logo from "../assets/rancheritos_logo.png";
+import logo from "../../assets/rancheritos_logo.png";
 
 class Header extends React.Component {
   state = {

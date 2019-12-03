@@ -1,0 +1,20 @@
+body {
+    background: url("https://thumbs.dreamstime.com/b/blue-painted-wood-boards-texture-background-vintage-wooden-horizontal-planks-73672409.jpg")
+      bottom left repeat;
+    background-attachment: scroll;
+    // box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.411);
+    background-position: cover;
+  }
+
+  .App {
+    text-align: left;
+  }
+
+  .overlay {
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.411);
+    position: fixed;
+    top: 0;
+    z-index: -1;
+  }

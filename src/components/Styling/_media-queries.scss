@@ -1,0 +1,188 @@
+@media (min-width: 420px) {
+  .container {
+    background-color: white;
+    background-image: white;
+    height: 100%;
+  }
+  body {
+    // background-color: white;
+    // background-image: white;
+    background: white;
+    height: 100vh;
+    z-index: -100;
+  }
+  .hero {
+      margin-bottom: 0;
+  }
+  .overlay {
+    height: 0;
+    width: 0;
+    background: none;
+    position: fixed;
+  }
+  .dash {
+    box-shadow: 8px 10px 10px -5px #777;
+    width: 420px;
+    height: auto;
+    background: linear-gradient(rgba(0, 0, 0, .555), rgba(0, 0, 0, 0.301)),
+      url("https://thumbs.dreamstime.com/b/blue-painted-wood-boards-texture-background-vintage-wooden-horizontal-planks-73672409.jpg")
+        bottom left repeat;
+    background-color: rgba(0, 0, 0, 0.239);
+    background-attachment: scroll;
+    // box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.411);
+    background-position: cover;
+    border-radius: 10px;
+    margin: 10px auto;
+    z-index: 0;
+    img {
+      width: auto;
+      height: 100px;
+      margin: 10px;
+    }
+    .category {
+      margin: 0 35px;
+    }
+  }
+  .white-space {
+      height: 10px;
+      background: white;
+      position: sticky;
+      top: 100px;
+      z-index: 2;
+  }
+  .dash2 {
+    box-shadow: 8px 10px 10px -5px #777;
+    width: 420px;
+    height: auto;
+    background: linear-gradient(rgba(0, 0, 0, 0.555), rgba(0, 0, 0, 0.301)),
+      url("https://thumbs.dreamstime.com/b/blue-painted-wood-boards-texture-background-vintage-wooden-horizontal-planks-73672409.jpg")
+        bottom left repeat;
+    background-color: rgba(0, 0, 0, 0.239);
+    background-attachment: scroll;
+    background-position: cover;
+    border-radius: 10px;
+    margin: 10px auto;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    img {
+      width: auto;
+      height: 75px;
+      margin: 10px;
+    }
+    .category {
+      margin: 0 35px;
+    }
+    p {
+      width: 220px;
+      height: auto;  
+    }
+  }
+  .dash-title {
+    background: $red;
+    margin: 0 10px;
+    position: sticky;
+    top: 110px;
+    z-index: 1;
+}
+.container {
+    .dash-title {
+        .h1 {
+            color: whitesmoke;
+            border-bottom: 1px solid whitesmoke;
+        }
+        .h2 {
+            text-align: center;
+            .line {
+                width: 250px;
+            }
+        }
+    }
+}
+  .sub-header {
+    background: $red;
+    margin: 10px;
+    margin-top: 0px;
+    padding-bottom: 20px;
+    height: 60px;
+    margin-top: 100px;
+    position: sticky;
+    top: 110px;
+    z-index: 1;
+    h2 {
+        margin-top: 20px;
+    }
+    .fa-arrow-circle-left {
+        margin-top: 20px;
+        margin-left: 20px;
+        color: rgba(255, 255, 255, 0.671);
+    }
+  }
+  .mapped-container {
+      margin-bottom: 50px;
+  }
+
+  .order-total {
+      padding-top: 40px;
+      text-align: right;
+      h4 {
+          color: black;
+          font-size: 1.5rem;
+      }
+      .tax {
+          border-bottom: 1px solid black;
+          text-align: right;
+          right: 0px;
+      }
+  }
+  .form-container {
+    // height: 60vh;
+    // width:80vw;
+    // background-color: #273043da;
+    background-color: rgba(255, 255, 255, 0.794);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -225px;
+    z-index: 5;
+    width: 450px;
+    height: 500px;
+
+  }
+}
+
+@media (min-width: 880px) {
+  .dash {
+    margin: 10px 10px;
+  }
+  .dash2 {
+      margin: 10px 10px;
+  }
+  .mapped {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 880px;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero {
+    height: 350px;
+  }
+}
+
+@media (min-width: 1325px) {
+  .mapped {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 1325px;
+    margin: auto;
+  }
+}

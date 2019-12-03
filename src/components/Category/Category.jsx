@@ -3,7 +3,7 @@ import axios from "axios";
 // import { Link } from "react-router-dom";
 // import Customize from "./Customize";
 import FoodItem from './FoodItem'
-import {handleCount} from "../ducks/reducer"
+import {handleCount} from "../../ducks/reducer"
 import connect from 'react-redux'
 
 class Category extends Component {
@@ -43,15 +43,18 @@ class Category extends Component {
         />
       );
     });
-    return <div>
+    return <div className='mapped-container'>
       <div className='overlay'></div>
+      <div className="white-space"></div>
        <div className="sub-header">
          <i onClick={this.goBack} className="fas fa-arrow-circle-left fa-2x fa-gradient-two"></i>
-        <h2>{this.props.match.params.category}</h2>
+        <h2>{this.props.match.params.category}:</h2>
        </div>
-        <div className="line"></div>
+        <div className="cart-line"></div>
 
-      {subCategoryItems}
+      <div className="mapped">
+        {subCategoryItems}
+      </div>
       </div>;
   }
 }

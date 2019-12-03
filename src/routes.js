@@ -1,11 +1,11 @@
 import React from 'react'
 import {Switch, Route} from 'react-router-dom'
-import Login from './components/Login'
-import Register from './components/Register'
-import Dash from './components/Dash'
-import Category from './components/Category';
-import Cart from './components/Cart'
-import Admin from './components/Admin';
+import Login from './components/Auth/Login'
+import Register from './components/Auth/Register'
+import Dash from './components/Dash/Dash'
+import Category from './components/Category/Category';
+import Cart from './components/Cart/Cart'
+import Admin from './components/Admin/Admin';
 
 export default (
     <Switch>

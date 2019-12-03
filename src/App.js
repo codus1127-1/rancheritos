@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.scss';
 import routes from './routes'
-import Header from './components/Header';
+import Header from './components/Header/Header';
 import {withRouter} from 'react-router-dom'
-import CartCounter from './components/CartCount'
+import CartCounter from './components/Header/CartCount'
 
 function App(props) {
   return (

@@ -1,0 +1,80 @@
+.cart-line {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.904);
+    width: 95vw;
+    margin: 5px auto;
+    z-index: 0;
+    margin-top: 5px;
+    position: sticky;
+    top: 165px;
+  }
+  .sub-header {
+    background: url('../../assets/bluewood.png') bottom left repeat;
+    background-size: cover;
+    margin: 0px;
+    margin-top: 0px;
+    padding-bottom: 20px;
+    height: 70px;
+    margin-top: 90px;
+    position: sticky;
+    top: 100px;
+    z-index: 0;
+    h2 {
+        margin-top: 20px;
+    }
+    .fa-arrow-circle-left {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+  }
+
+  .checkout-button {
+    background-color: $yellow;
+    color: rgb(34, 34, 34);
+    // font-weight: 2000;
+    height: 45px;
+    text-align: center;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    font-family: $font2;
+    font-size: 2.1rem;
+    width: 100%;
+    padding: 4px;
+    }
+
+    .order-total {
+        display: flex;
+        flex-direction: column;
+        height: 150px;
+        justify-content: space-between;
+        font-family: $font1;
+        text-align: right;
+        margin-bottom: 100px;
+        h4{
+          color: white;
+    
+        }
+        .tax {
+          border-bottom: 2px solid white;
+          
+        }
+        h3 {
+          color: $green;
+          font-size: 2rem;
+          font-weight: 1000;
+    
+        }
+      }
+
+      .fa-minus-circle {
+        color: rgba(255, 0, 0, 0.438);
+        // background-color: $yellow;
+        width: 30px;
+        height: 30px;
+      }   
+      
+      .fa-minus-circle:active {
+        color: rgba(255, 0, 0, 0.623);
+        background-color: rgba(252, 5, 5, 0.151);
+        border-radius: 50%;
+      }

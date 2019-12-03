@@ -1,0 +1,100 @@
+@import "../Styling/variables";
+
+.header img {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  height: 80px;
+  width: auto;
+}
+
+.header-container {
+  position:fixed;
+  height: 100px;
+  top: 0px;
+  width: 100%;
+  // background-image: linear-gradient($green, $yellow);
+  // background-image: url('https://images.fabric.com/images/693/693/0473337.jpg');
+  background-color: #273043;
+  border-bottom: 2px solid $red;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  i {
+    color: rgba(128, 128, 128, 0.671);
+    margin: 10px;
+  }
+}
+
+.fa-cart-plus:active {
+  color: white;
+  border-radius: 50%;
+  text-decoration: none;
+  outline: none;
+  border: 0;
+}
+
+.fa-user:active {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.151);
+  border-radius: 50%;
+}
+
+.logout {
+  height: 25px;
+  width: 80px;
+  background-color: rgba(128, 128, 128, 0.658);
+  position: fixed;
+  right: 10px;
+  top: 50px;
+  font-size: 1.4rem;
+  color: white;
+  font-family: $font1;
+  text-align: center;
+}
+
+.logout:active {
+  background-color: rgb(255, 255, 255);
+  color: rgba(128, 128, 128, 0.658);
+}
+
+.logout2 {
+  height: 25px;
+  width: 80px;
+  background-color: rgba(128, 128, 128, 0.658);
+  position: fixed;
+  right: 10px;
+  top: 85px;
+  font-size: 1.4rem;
+  color: white;
+  font-family: $font1;
+  text-align: center;
+}
+
+.logout2:active {
+  background-color: rgb(255, 255, 255);
+  color: rgba(128, 128, 128, 0.658);
+}
+
+.counter {
+  h1{
+    background-color: rgba(255, 0, 0, 0.425);
+    color: rgb(255, 255, 255);
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+    position: fixed;
+    top: 3px;
+    right: 48px;
+    text-align: center;
+    z-index: 2;
+  }
+  a {
+    text-decoration: none;  
+  }
+}
