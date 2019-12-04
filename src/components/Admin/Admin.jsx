@@ -78,15 +78,21 @@ class Admin extends Component {
     )
   })
     return (
-      <div>
+      <div className='admin'>
         <div className="overlay"></div>
-        <h2 className="order-title">Orders</h2> 
-        <table>
-          <tr>
-            <td>{newOrders}</td>
-            <td>{readyOrders}</td>
-          </tr>
-        </table>
+        <div className="title-container">
+          <h2 className="order-title">NEW ORDERS</h2> 
+          <h2 className="order-title2">READY</h2> 
+
+        </div>
+        <div className="orders-container">
+            <div className='newOrders-container'>
+              <div className="newOrders">
+                {newOrders}
+              </div>
+              </div>
+            <div className='readyOrders'>{readyOrders}</div>
+        </div>
         {/* <p className='admin'>{JSON.stringify(this.state.orders)}</p> */}
       </div>
     ); 

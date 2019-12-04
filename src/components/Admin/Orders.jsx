@@ -6,31 +6,32 @@ class Orders extends Component {
         const el = this.props.el 
         const i = this.props.i
         return (
-        <div key={i}>
-          <div className="sub-category">
-            <div className="order-item">
-              <h2>{el.name}</h2>
-              <h4> {el.id}</h4>
+          <div className="admin-sub-category">
+              <div className="order-top">
+              <h4>ORDER #:  {el.id}</h4>
+                <button onClick={() => this.props.buttonAction(el)}>
+                  {!this.props.isReady ? 'Ready' : 'Picked Up'}
+                </button>
+              </div>
+            <div className="admin-order-item">
               <h2>{el.fulfilled}</h2>
+              <h2>{el.name}</h2>
             </div>
-            <div className="plus">
+            <div className="plus2">
               {el.order_items.map((el, i) => {
                 return (
-                  <div key={i}>
-                    <p>{el.id}</p>
-                    <p>{el.title}</p>
+                  <div className='single-order' key={i}>
+                    <p>ITEM #: {el.id}</p>
+                    <p className='title'>{el.title}</p>
                     <p>{el.price}</p>
-                    <p>{el.description}</p>
+                    <button>View details</button>
+                    {/* <div className='description'>{el.description}</div> */}
                   </div>
                 );
               })}
-              <button onClick={() => this.props.buttonAction(el)}>
-                {!this.props.isReady ? 'Ready' : 'Picked Up'}
-              </button>
               <br />
             </div>
           </div>
-        </div>
       )
     }
 }

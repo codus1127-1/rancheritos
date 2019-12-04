@@ -8,7 +8,7 @@ import CartCounter from './components/Header/CartCount'
 function App(props) {
   return (
     <div className="App">
-      {props.location.pathname !== '/' && props.location.pathname !== '/register' ? <div>
+      {props.location.pathname !== '/' && props.location.pathname !== '/register' && props.location.pathname !== '/admin' ? <div>
       	<Header/> <CartCounter/>
       </div> : <></>}
       
