@@ -65,7 +65,9 @@ class Customize extends Component {
     });
     return (
       <div>
-        {addOns}
+        <div className="wrapper">
+          {addOns}
+        </div>
         <div className="customize-button" onClick={() => this.props.toggleAddOns()}>
           {!this.props.addOnToggle ? (
             <i className="fas fa-chevron-down fa-2x"></i>

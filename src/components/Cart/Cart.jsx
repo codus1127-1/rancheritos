@@ -27,6 +27,7 @@ class Cart extends Component {
     axios.get("/cart").then(res => {
       const subtotal = res.data
         .map(el => {
+          console.log(el.price)
           return el.price;
         })
         .reduce((price1, price2) => {

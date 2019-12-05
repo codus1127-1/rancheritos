@@ -4,6 +4,15 @@
     background-image: white;
     height: 100%;
   }
+
+  .header-container {
+    display: flex;
+    justify-content: center;
+    .header img {
+      position: relative;
+    }
+    
+  }
   body {
     // background-color: white;
     // background-image: white;

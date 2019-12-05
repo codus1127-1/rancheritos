@@ -25,9 +25,19 @@
 .header-container {
   display: flex;
   justify-content: space-between;
-  i {
+  .fa-cart-plus {
     color: rgba(128, 128, 128, 0.671);
     margin: 10px;
+    position: fixed;
+    top: 0;
+    right: 45px;
+  }
+  .fa-user {
+    color: rgba(128, 128, 128, 0.671);
+    margin: 10px;
+    position: fixed;
+    top: 0;
+    right: 0;
   }
 }
 

@@ -1,13 +1,18 @@
-.addOns {
+.addOns{
     display: flex;
     flex-direction: row;
     justify-content: left;
     align-items: center;
-    margin: 7px;
-    .checkbox {
-      opacity: 0;
-    }
+    margin: 0px;
   }
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  transition: 2s ease-in-out;
+
+}
+
 
   .customize-button {
     color: rgba(255, 255, 255, 0.733);
@@ -16,6 +21,9 @@
     flex-direction: column;
     align-items: center;
   }
+.customize-button:hover {
+  color: white;
+}
   
   .add-ons {
     color: white;

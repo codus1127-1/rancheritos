@@ -1,17 +1,49 @@
 .admin {
     // margin-top: 110px;
     // color: white;
-    background: rgb(29, 29, 29);
+    background: $background-blue;
     width: 100%;
     z-index: 9;
     height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+  }
+
+  .admin-header {
+    background: linear-gradient(to bottom, silver, rgba(192, 192, 192, 0.568));
+    height: 60px;
+    border: 5px solid $background-blue;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .time-title {
+      margin-left: 15px;
+      font-size: 2rem;
+      display: flex;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bolder;
+      color: rgb(29,29,29);
+
+      .time {
+        margin-left: 10px;
+        color: white;
+        font-family: $digital;
+        font-weight: bold;
+      }
+    }
+    i {
+      margin-right: 15px;
+      color: rgb(29, 29, 29);
+    }
   }
 
   .orders-container {
     display: flex;
     padding-top: 60px;
     position: fixed;
-    background: rgb(29, 29, 29);
+    background: linear-gradient(to bottom, $background-blue, rgba(123, 164, 202, 0.801)), url("https://urbaneat.co.uk/wp-content/uploads/2018/05/Mexican-dishes-banner.jpg") no-repeat;
+    background-size: cover;
     margin: 0 auto;
     
   }
@@ -22,18 +54,22 @@
     font-size: 2rem;
     width: 80vw;
     text-align: center;
+    border-right: 2px solid silver;
+    border-top: 2px solid silver;
   }
   .order-title2 {
+    border-top: 2px solid silver;
     padding: 10px;
     color: white;
     font-size: 2rem;
-    width: 220px;
+    width: 20vw;
     text-align: center;
   }
   
   .newOrders-container {
     width: 80vw;
-    border-right: 3px solid yellow;
+    border-right: 2px solid silver;
+    border-top: 2px solid silver;
   }
 
   .newOrders {
@@ -43,10 +79,15 @@
     flex-wrap: wrap;
     margin: 0 auto;
     padding-left: 10px;
-    // justify-content: center;
+    height: 100vh;
+    padding-bottom: 125px;
+    padding-top: 5px;
+    
+    justify-content: center;
   }
   
   .newOrders::-webkit-scrollbar { width: 0 !important }
+  .readyOrders::-webkit-scrollbar { width: 0 !important }
   
   .readyOrders {
     width: 20vw;
@@ -55,50 +96,89 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 70px;
+    padding-bottom: 125px;
+    border-top: 2px solid silver;
+    padding-top: 5px;;
 
   }
 
   .description {
-    width: 100px;
+    width: 190px;
     flex-wrap: wrap;
     color: white;
   }
   .single-order {
     width: 190px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    .item-num {
+      color: $admin-yellow;
+      padding: 3px;
+      width: auto;
+      text-align: center;
+    }
+
+
     p {
       width: 190px;
-      color: white;
+      color: $white;
+      margin: 4px 0;
+    }
+    .title {
+      padding: 3px;
     }
   }
 
   .admin-order-item {
     h2 {
-      color: $green;
+      color: $white;
+      // background: $admin-orange;
+      text-align: center;
+      margin: 10px auto;
+      margin-bottom: 20px;
+      border-bottom: 1px solid $white;
+      width: 180px;
+      padding: 4px;
+
     }
   }
 
   .order-top {
     display: flex;
+    margin: 5px 0px 0px 0px;
     h4 {
-      background:$red;
+      background:$admin-red;
       color: white;
-      width: 110px;
+      width: 130px;
       text-align: center;
       margin: auto;
+      padding: 5px;
+      border-radius: 7px;
+
     }
     button {
-      background: green;
+      background: $admin-green;
+      margin: 3px;
+      padding: 3px;
+      border: 1px solid rgba(0, 0, 0, 0.226);
+      border-radius: 5px;
+      font-weight: 700;
     }
   }
 
   .admin-sub-category {
-    width: 200px;
+    width: 210px;
+    height: auto;
     border: 1px solid rgba(255, 255, 255, 0.198);
-    height: 100%;
-    background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0.178));
+    background: linear-gradient(to bottom right, rgba(21, 43, 67, 0.685), rgba(21, 43, 67, 0.438));
     border-radius: 10px;
     margin: 2px;
+    box-shadow: 0px 5px 5px -5px rgb(0, 0, 0);
+   
     
     
   }
@@ -110,3 +190,25 @@
     z-index: 1;
     width: 100vw;
   }
+
+  .add-on {
+    color: $admin-orange;
+  }
+  .add-on-container {
+    padding: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 180px;
+  }
+
+  .details {
+    background: $admin-yellow;
+      margin: 3px auto;
+      padding: 5px;
+      border: 1px solid rgba(0, 0, 0, 0.226);
+      border-radius: 5px;
+      font-weight: 700;
+      width: 190px;
+  }
+
+
+  //button transition

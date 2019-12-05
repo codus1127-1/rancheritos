@@ -19,9 +19,18 @@
 .header-container {
   display: flex;
   justify-content: space-between; }
-  .header-container i {
+  .header-container .fa-cart-plus {
     color: rgba(128, 128, 128, 0.671);
-    margin: 10px; }
+    margin: 10px;
+    position: fixed;
+    top: 0;
+    right: 45px; }
+  .header-container .fa-user {
+    color: rgba(128, 128, 128, 0.671);
+    margin: 10px;
+    position: fixed;
+    top: 0;
+    right: 0; }
 
 .fa-cart-plus:active {
   color: white;
@@ -287,6 +296,8 @@ body {
 .register {
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.342);
   background-image: url("https://urbaneat.co.uk/wp-content/uploads/2018/05/Mexican-dishes-banner.jpg");
+  background-size: cover;
+  background-position: center;
   color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -295,7 +306,10 @@ body {
   height: 100vh; }
   .register img {
     height: 120px;
-    width: auto; }
+    box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.685);
+    width: auto;
+    background: rgba(255, 255, 255, 0.596);
+    border-radius: 7px; }
   .register button {
     border: none;
     background-color: rgba(255, 255, 255, 0);
@@ -415,15 +429,22 @@ body {
   flex-direction: row;
   justify-content: left;
   align-items: center;
-  margin: 7px; }
-  .addOns .checkbox {
-    opacity: 0; }
+  margin: 0px; }
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  transition: 2s ease-in-out; }
 
 .customize-button {
   color: rgba(255, 255, 255, 0.733);
   display: flex;
   flex-direction: column;
   align-items: center; }
+
+.customize-button:hover {
+  color: white; }
 
 .add-ons {
   color: white;
@@ -496,16 +517,43 @@ body {
   border-radius: 50%; }
 
 .admin {
-  background: #1d1d1d;
+  background: #29659F;
   width: 100%;
   z-index: 9;
-  height: 100%; }
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold; }
+
+.admin-header {
+  background: linear-gradient(to bottom, silver, rgba(192, 192, 192, 0.568));
+  height: 60px;
+  border: 5px solid #29659F;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .admin-header .time-title {
+    margin-left: 15px;
+    font-size: 2rem;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    color: #1d1d1d; }
+    .admin-header .time-title .time {
+      margin-left: 10px;
+      color: white;
+      font-family: "Orbitron", sans-serif;
+      font-weight: bold; }
+  .admin-header i {
+    margin-right: 15px;
+    color: #1d1d1d; }
 
 .orders-container {
   display: flex;
   padding-top: 60px;
   position: fixed;
-  background: #1d1d1d;
+  background: linear-gradient(to bottom, #29659F, rgba(123, 164, 202, 0.801)), url("https://urbaneat.co.uk/wp-content/uploads/2018/05/Mexican-dishes-banner.jpg") no-repeat;
+  background-size: cover;
   margin: 0 auto; }
 
 .order-title {
@@ -513,18 +561,22 @@ body {
   color: white;
   font-size: 2rem;
   width: 80vw;
-  text-align: center; }
+  text-align: center;
+  border-right: 2px solid silver;
+  border-top: 2px solid silver; }
 
 .order-title2 {
+  border-top: 2px solid silver;
   padding: 10px;
   color: white;
   font-size: 2rem;
-  width: 220px;
+  width: 20vw;
   text-align: center; }
 
 .newOrders-container {
   width: 80vw;
-  border-right: 3px solid yellow; }
+  border-right: 2px solid silver;
+  border-top: 2px solid silver; }
 
 .newOrders {
   overflow-y: scroll;
@@ -532,9 +584,16 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   margin: 0 auto;
-  padding-left: 10px; }
+  padding-left: 10px;
+  height: 100vh;
+  padding-bottom: 125px;
+  padding-top: 5px;
+  justify-content: center; }
 
 .newOrders::-webkit-scrollbar {
+  width: 0 !important; }
+
+.readyOrders::-webkit-scrollbar {
   width: 0 !important; }
 
 .readyOrders {
@@ -544,40 +603,71 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 70px; }
+  padding-bottom: 125px;
+  border-top: 2px solid silver;
+  padding-top: 5px; }
 
 .description {
-  width: 100px;
+  width: 190px;
   flex-wrap: wrap;
   color: white; }
 
 .single-order {
-  width: 190px; }
+  width: 190px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid white;
+  display: flex;
+  flex-direction: column; }
+  .single-order .item-num {
+    color: #E6D82F;
+    padding: 3px;
+    width: auto;
+    text-align: center; }
   .single-order p {
     width: 190px;
-    color: white; }
+    color: white;
+    margin: 4px 0; }
+  .single-order .title {
+    padding: 3px; }
 
 .admin-order-item h2 {
-  color: #81c534; }
+  color: white;
+  text-align: center;
+  margin: 10px auto;
+  margin-bottom: 20px;
+  border-bottom: 1px solid white;
+  width: 180px;
+  padding: 4px; }
 
 .order-top {
-  display: flex; }
+  display: flex;
+  margin: 5px 0px 0px 0px; }
   .order-top h4 {
-    background: #fd2411;
+    background: #D41A22;
     color: white;
-    width: 110px;
+    width: 130px;
     text-align: center;
-    margin: auto; }
+    margin: auto;
+    padding: 5px;
+    border-radius: 7px; }
   .order-top button {
-    background: green; }
+    background: #53A742;
+    margin: 3px;
+    padding: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.226);
+    border-radius: 5px;
+    font-weight: 700; }
 
 .admin-sub-category {
-  width: 200px;
+  width: 210px;
+  height: auto;
   border: 1px solid rgba(255, 255, 255, 0.198);
-  height: 100%;
-  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0.178));
+  background: linear-gradient(to bottom right, rgba(21, 43, 67, 0.685), rgba(21, 43, 67, 0.438));
   border-radius: 10px;
-  margin: 2px; }
+  margin: 2px;
+  box-shadow: 0px 5px 5px -5px black; }
 
 .title-container {
   display: flex;
@@ -585,6 +675,23 @@ body {
   height: 60px;
   z-index: 1;
   width: 100vw; }
+
+.add-on {
+  color: #EF9109; }
+
+.add-on-container {
+  padding: 2px;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 180px; }
+
+.details {
+  background: #E6D82F;
+  margin: 3px auto;
+  padding: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.226);
+  border-radius: 5px;
+  font-weight: 700;
+  width: 190px; }
 
 table {
   max-width: 100%; }
@@ -695,6 +802,11 @@ table {
     background-color: white;
     background-image: white;
     height: 100%; }
+  .header-container {
+    display: flex;
+    justify-content: center; }
+    .header-container .header img {
+      position: relative; }
   body {
     background: white;
     height: 100vh;

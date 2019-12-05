@@ -30,6 +30,7 @@ module.exports = {
 
   getCart: (req, res) => {
     res.status(200).send(req.session.user.cart);
+    console.log(req.session.user.cart)
   },
 
   deleteCart: (req, res) => {

@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
+import { updateUserInfo, clearCount } from "../../ducks/reducer";
+import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 import Orders from "./Orders";
+import Clock from 'react-live-clock'
 
 class Admin extends Component {
   constructor(props) {
@@ -23,8 +27,10 @@ class Admin extends Component {
 
   getOrders = () => {
     axios.get("/orders").then(res => {
+      // console.log(res.data)
       this.setState({
         ...res.data
+        
       });
       setTimeout(() => {
         if (this._ismounted) {
@@ -57,6 +63,19 @@ class Admin extends Component {
     })
   };
 
+  logout = () => {
+    axios.delete("/auth/logout").then(res => {
+      Swal.fire(res.data.message);
+      this.props.clearCount()
+      this.props.updateUserInfo({
+        email: "",
+        name: "",
+        user_id: "",
+        is_admin: false
+      });
+    });
+  };
+
   render() {
     const newOrders = this.state.newOrders.map((el, i) => {
       return (
@@ -80,6 +99,16 @@ class Admin extends Component {
     return (
       <div className='admin'>
         <div className="overlay"></div>
+        <div className="admin-header">
+        <div className='time-title'> CURRENT TIME:
+          <div className='time'>
+            <Clock format={'h:mm:ss'} ticking={true} timezone={'US/Mountain'} />
+          </div>
+        </div>
+        <Link to="/">
+          <i className="fas fa-user fa-2x" onClick={()=> this.logout()}></i>
+        </Link>
+        </div>
         <div className="title-container">
           <h2 className="order-title">NEW ORDERS</h2> 
           <h2 className="order-title2">READY</h2> 
@@ -107,4 +136,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Admin);
+export default connect(mapStateToProps, {updateUserInfo, clearCount})(Admin);
