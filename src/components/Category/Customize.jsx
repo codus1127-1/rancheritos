@@ -53,7 +53,7 @@ class Customize extends Component {
                 onChange={e => this.checked(e.target.checked, el)}
                 id={el.id}
               >
-                <input type="checkbox" />>
+                <input type="checkbox" />
                 <span className="checkbox-custom circular"></span>
               </label>
 

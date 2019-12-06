@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {toast} from 'react-toastify'
 import { StripeProvider, Elements } from "react-stripe-elements";
 import StripeForm from "../Stripe/StripeForm";
 import Swal from "sweetalert2";
 import {connect} from 'react-redux'
 import {removeCount, clearCount} from '../../ducks/reducer'
+import Clock from 'react-live-clock'
+import { toast } from 'react-toastify';
 
 toast.configure()
 
@@ -20,6 +21,7 @@ class Cart extends Component {
   };
 
   componentDidMount = () => {
+    console.log(<Clock />)
     this.getCart();
   };
 
@@ -58,7 +60,16 @@ class Cart extends Component {
 
   submitOrder = () => {
     axios.post('/order').then(() => {
-        Swal.fire({title: 'Thank you for choosing Rancheritos!', message: 'Your order has been received', type: 'success'})
+      Swal.fire({
+        title: 'Order received.',
+        text: `It will be ready in 15 minutes!`,
+        width: 400,
+        padding: '3em',
+        background: 'url(https://ae01.alicdn.com/kf/HTB1VVnbqf5TBuNjSspcq6znGFXaH/rustic-Light-wood-texture-old-natural-table-top-Vintage-backgrounds-Vinyl-cloth-High-quality-Computer-print.jpg) center no-repeat',
+        backdrop: `
+          rgba(29,29,29,0.4)
+        `
+      })
       this.props.clearCount()
       this.props.history.push("/dashboard");
     });
@@ -75,6 +86,7 @@ class Cart extends Component {
       this.setState({
           toggle2: true
       })
+      toast.success('Card added successfully!')
     //   toast('Succuss', {type: 'success'}) 
   }
 
@@ -99,12 +111,12 @@ class Cart extends Component {
                   </div>
                 );
               })}
-
+              {!this.state.toggle2 ? (
               <i
                 onClick={() => this.deleteCart(i)}
-                // onClick={window.location.reload()}
                 className="fas fa-minus-circle fa-2x"
-              ></i>
+              ></i>  
+              ) : null} 
             </div>
           </div>
         </div>
@@ -121,8 +133,10 @@ class Cart extends Component {
           ></i>
           <h2>CART:</h2>
         </div>
+          {this.state.toggle2 ? (
+          <h2 className='order-review'>ORDER REVIEW</h2>
+           ) : null} 
         <div className="cart-line"></div>
-
         <div className="mapped">
           {cart}
         </div>
@@ -150,7 +164,7 @@ class Cart extends Component {
         {this.state.toggle ? null : <div onClick={() => this.toggle()} className="checkout-button">
           proceed to payment
         </div> }
-        {this.state.toggle2 ? <div onClick={()=>this.submitOrder()} className="checkout-button">Submit Order</div> : null}
+        {this.state.toggle2 ? <div onClick={()=>this.submitOrder()} className="checkout-button">submit order</div> : null}
       </div>
     );
   }

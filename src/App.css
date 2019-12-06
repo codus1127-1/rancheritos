@@ -303,7 +303,8 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  height: 100vh; }
+  height: 100vh;
+  color: rgba(255, 255, 255, 0.582); }
   .register img {
     height: 120px;
     box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.685);
@@ -484,6 +485,16 @@ body {
   position: fixed;
   bottom: 0px;
   left: 0px;
+  font-family: "Permanent Marker", cursive;
+  font-size: 2.1rem;
+  width: 100%;
+  padding: 4px; }
+
+.order-review {
+  margin-top: 40px;
+  color: white;
+  height: 45px;
+  text-align: center;
   font-family: "Permanent Marker", cursive;
   font-size: 2.1rem;
   width: 100%;
@@ -802,6 +813,9 @@ table {
     background-color: white;
     background-image: white;
     height: 100%; }
+  .order-review {
+    color: #222222;
+    border-bottom: 2px solid #222222; }
   .header-container {
     display: flex;
     justify-content: center; }

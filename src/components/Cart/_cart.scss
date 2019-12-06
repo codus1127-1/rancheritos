@@ -42,6 +42,22 @@
     padding: 4px;
     }
 
+    .order-review {
+      // background-color: $yellow;
+      margin-top: 40px;
+      color: white;
+      // font-weight: 2000;
+      height: 45px;
+      text-align: center;
+      // position: fixed;
+      // bottom: 0px;
+      // left: 0px;
+      font-family: $font2;
+      font-size: 2.1rem;
+      width: 100%;
+      padding: 4px;
+    }
+
     .order-total {
         display: flex;
         flex-direction: column;

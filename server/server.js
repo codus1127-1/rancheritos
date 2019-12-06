@@ -3,6 +3,8 @@ const express = require('express')
 const massive = require('massive')
 const session = require('express-session')
 const stripeLoader = require('stripe')
+const moment = require('moment');
+moment().format();
 
 const {SERVER_PORT, CONNECTION_STRING, SECRET, STRIPE_SECRET} = process.env
 

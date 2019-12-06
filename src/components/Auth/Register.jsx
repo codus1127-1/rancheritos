@@ -28,14 +28,39 @@ class Register extends Component {
         .post("/auth/register", { name, email, password })
         .then(res => {
           this.props.updateUserInfo(res.data.user);
-          Swal.fire(res.data.message);
+          Swal.fire({
+            title: `Hola, ${res.data.user.name}! `,
+            text: `Welcome to Rancheritos!`,
+            width: 300,
+            padding: '3em',
+            background: 'url(https://ae01.alicdn.com/kf/HTB1VVnbqf5TBuNjSspcq6znGFXaH/rustic-Light-wood-texture-old-natural-table-top-Vintage-backgrounds-Vinyl-cloth-High-quality-Computer-print.jpg) center no-repeat',
+            backdrop: `
+              rgba(29,29,29,0.4)
+            `
+          })
           this.props.history.push("/dashboard");
         })
         .catch(err => {
-          Swal.fire(err.response.data.message);
+          Swal.fire({
+            text: `${err.response.data.message}`,
+            width: 300,
+            padding: '3em',
+            background: 'url(https://ae01.alicdn.com/kf/HTB1VVnbqf5TBuNjSspcq6znGFXaH/rustic-Light-wood-texture-old-natural-table-top-Vintage-backgrounds-Vinyl-cloth-High-quality-Computer-print.jpg) center no-repeat',
+            backdrop: `
+              rgba(29,29,29,0.4)
+            `
+          });
         });
     } else {
-      Swal.fire(`passwords don't match`);
+      Swal.fire({
+        text: `passwords don't match`,
+        width: 300,
+        padding: '3em',
+        background: 'url(https://ae01.alicdn.com/kf/HTB1VVnbqf5TBuNjSspcq6znGFXaH/rustic-Light-wood-texture-old-natural-table-top-Vintage-backgrounds-Vinyl-cloth-High-quality-Computer-print.jpg) center no-repeat',
+        backdrop: `
+          rgba(29,29,29,0.4)
+        `
+    });
     }
   };
 

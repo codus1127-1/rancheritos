@@ -19,8 +19,17 @@ class Header extends React.Component {
 
   logout = () => {
     axios.delete("/auth/logout").then(res => {
-      Swal.fire(res.data.message);
-      this.props.clearCount()
+      Swal.fire({
+        text: res.data.message,
+        width: 300,
+        padding: "3em",
+        background:
+          "url(https://ae01.alicdn.com/kf/HTB1VVnbqf5TBuNjSspcq6znGFXaH/rustic-Light-wood-texture-old-natural-table-top-Vintage-backgrounds-Vinyl-cloth-High-quality-Computer-print.jpg) center no-repeat",
+        backdrop: `
+            rgba(29,29,29,0.4)
+          `
+      });
+      this.props.clearCount();
       this.props.updateUserInfo({
         email: "",
         name: "",
@@ -39,30 +48,31 @@ class Header extends React.Component {
   render() {
     return (
       // <div>
-        <div className="header-container">
-          {this.state.toggle ? (
-            <div>
-              <Link to="/">
-             <div onClick={this.logout} className="logout">logout</div>
-              </Link>
-              <Link to="/admin">
+      <div className="header-container">
+        {this.state.toggle ? (
+          <div>
+            <Link to="/">
+              <div onClick={this.logout} className="logout">
+                logout
+              </div>
+            </Link>
+            {/* <Link to="/admin">
                 <div onClick={this.toggle} className="logout2">admin</div>
-              </Link>
-            </div>
-          ) : null}
-          <div className="header">
-            <Link to='/dashboard'>
-              <img src={logo} alt="logo" />
-            </Link>
+              </Link> */}
           </div>
-          <div className="top-right">
-            <Link to="/cart">
-              
-              <i className="fas fa-cart-plus fa-2x"></i>
-            </Link>
-              <i className="fas fa-user fa-2x" onClick={()=> this.toggle()}></i>
-          </div>
+        ) : null}
+        <div className="header">
+          <Link to="/dashboard">
+            <img src={logo} alt="logo" />
+          </Link>
         </div>
+        <div className="top-right">
+          <Link to="/cart">
+            <i className="fas fa-cart-plus fa-2x"></i>
+          </Link>
+          <i className="fas fa-user fa-2x" onClick={() => this.toggle()}></i>
+        </div>
+      </div>
       // </div>
     );
   }
