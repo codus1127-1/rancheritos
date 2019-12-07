@@ -4,7 +4,11 @@ const massive = require('massive')
 const session = require('express-session')
 const stripeLoader = require('stripe')
 const moment = require('moment');
+const path = require('path'); // Usually moved to the start of file
 moment().format();
+
+
+
 
 const {SERVER_PORT, CONNECTION_STRING, SECRET, STRIPE_SECRET} = process.env
 
@@ -13,19 +17,23 @@ const authCtrl = require('./controllers/authController')
 
 const app = express()
 
+app.use( express.static( `${__dirname}/../build` ) );
 app.use(express.json())
 app.use(
     session({
-    resave: true,
-    saveUninitialized: true,
-    secret: SECRET,
-    cookie: {secure: false}
-}))
-//Authentication
-app.post('/auth/register', authCtrl.register)
-app.post('/auth/login', authCtrl.login)
-app.delete('/auth/logout', authCtrl.logout)
-
+        resave: true,
+        saveUninitialized: true,
+        secret: SECRET,
+        cookie: {secure: false}
+    }))
+    //Authentication
+    app.post('/auth/register', authCtrl.register)
+    app.post('/auth/login', authCtrl.login)
+    app.delete('/auth/logout', authCtrl.logout)
+    
+    app.get('*', (req, res)=>{
+        res.sendFile(path.join(__dirname, '../build/index.html'));
+    })
 //Menu Categories
 app.get('/category', ctrl.getCategories)
 app.get('/category/items/:category', ctrl.getItems)
