@@ -3,15 +3,38 @@ import React, { Component } from 'react';
 class Orders extends Component {
   constructor(props) {
     super(props);
+    const orderToggle = this.props.el.order_items.map((el, i) => false)
+    // console.log(orderToggle)
     this.state = {
-      toggle: false
+      toggle: orderToggle
     }
   }
 
-  toggle = () => {
+  toggle = (i) => {
+    console.log(this.state.toggle)
     this.setState({
-      toggle: !this.state.toggle
+      toggle: this.state.toggle.map((toggle, index) => {
+        if (index === i) { 
+          return !toggle
+        } else {
+          return toggle
+        }
+      })
     })
+  }
+
+  setColor = (el)=> {
+    if ('timeToPickUp' in el) {
+      if (el.timeToPickUp > 10) {
+        return 'blue' 
+      } else if(el.timeToPickUp > 5 && el.timeToPickUp <= 10) {
+        return 'yellow'
+      } else if (el.timeToPickUp <=5){
+        return 'red'
+      }
+    } else {
+      return 'green'
+    }
   }
   
 
@@ -20,7 +43,8 @@ class Orders extends Component {
         // console.log(el.order_items[0])
         const i = this.props.i
         return (
-          <div className="admin-sub-category">
+          <div className={`admin-sub-category ${this.setColor(el)}`} >
+            <h1>{new Date(el.time_stamp).toLocaleTimeString([], {hour: 'numeric', minute: '2-digit', hour12: true})}</h1>
               <div className="order-top">
               <h4>ORDER #:  {el.id}</h4>
                 <button onClick={() => this.props.buttonAction(el)}>
@@ -46,8 +70,8 @@ class Orders extends Component {
                         })}
                         </div>
                     <ul className='sub-menu-parent'>
-                      <button className='details' onClick={()=> this.toggle()}>View details</button>
-                      {this.state.toggle ? <ul className='sub-menu'>
+                      <button className='details' onClick={()=> this.toggle(i)}>View details</button>
+                      {this.state.toggle[i] ? <ul className='sub-menu'>
                         <li className='description'>{el.description}</li>
                       </ul> : null}
                     </ul>

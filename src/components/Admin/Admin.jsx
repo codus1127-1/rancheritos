@@ -5,7 +5,7 @@ import { updateUserInfo, clearCount } from "../../ducks/reducer";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import Orders from "./Orders";
-import Clock from 'react-live-clock'
+import Clock from "react-live-clock";
 
 class Admin extends Component {
   constructor(props) {
@@ -27,46 +27,49 @@ class Admin extends Component {
 
   getOrders = () => {
     axios.get("/orders").then(res => {
-      // console.log(res.data)
+      const currentTime = new Date()
+      const newOrders = res.data.newOrders.map(el => {
+        const pickUpTime = new Date(el.time_stamp)
+        const timeToPickUp = (pickUpTime - currentTime) / 1000 / 60
+        console.log(pickUpTime)
+        return { ...el, timeToPickUp: timeToPickUp };
+      });
       this.setState({
-        ...res.data
-        
+        newOrders: newOrders,
+        readyOrders: res.data.readyOrders
       });
       setTimeout(() => {
         if (this._ismounted) {
           this.getOrders();
-          console.log("hit");
         }
       }, 10000);
     });
   };
 
   fulfilledOrders = el => {
-    axios.put(`/order/${el.id}`, {action: 'ready'})
-    .then(()=> {
-      axios.get('/orders').then(res => {
+    axios.put(`/order/${el.id}`, { action: "ready" }).then(() => {
+      axios.get("/orders").then(res => {
         this.setState({
           ...res.data
-        })
-      })
-    })
+        });
+      });
+    });
   };
 
   pickedUpOrders = el => {
-    axios.put(`/order/${el.id}`, {action: 'picked up'})
-    .then(()=> {
-      axios.get('/orders').then(res => {
+    axios.put(`/order/${el.id}`, { action: "picked up" }).then(() => {
+      axios.get("/orders").then(res => {
         this.setState({
           ...res.data
-        })
-      })
-    })
+        });
+      });
+    });
   };
 
   logout = () => {
     axios.delete("/auth/logout").then(res => {
       Swal.fire(res.data.message);
-      this.props.clearCount()
+      this.props.clearCount();
       this.props.updateUserInfo({
         email: "",
         name: "",
@@ -79,52 +82,56 @@ class Admin extends Component {
   render() {
     const newOrders = this.state.newOrders.map((el, i) => {
       return (
-      <Orders 
-      el={el}
-      i={i}
-      isReady={false}
-      buttonAction={this.fulfilledOrders}
-      />)
-  })
-  const readyOrders = this.state.readyOrders.map((el, i) => {
+        <Orders
+          el={el}
+          i={i}
+          isReady={false}
+          buttonAction={this.fulfilledOrders}
+        />
+      );
+    });
+    const readyOrders = this.state.readyOrders.map((el, i) => {
+      return (
+        <Orders
+          el={el}
+          i={i}
+          isReady={true}
+          buttonAction={this.pickedUpOrders}
+        />
+      );
+    });
     return (
-      <Orders 
-      el={el}
-      i={i}
-      isReady={true}
-      buttonAction={this.pickedUpOrders}
-      />
-    )
-  })
-    return (
-      <div className='admin'>
+      <div className="admin">
         <div className="overlay"></div>
         <div className="admin-header">
-        <div className='time-title'> CURRENT TIME:
-          <div className='time'>
-            <Clock format={'h:mm:ss'} ticking={true} timezone={'US/Mountain'} />
+          <div className="time-title">
+            {" "}
+            CURRENT TIME:
+            <div className="time">
+              <Clock
+                format={"h:mm:ss"}
+                ticking={true}
+                timezone={"US/Mountain"}
+              />
+            </div>
           </div>
-        </div>
-        <Link to="/">
-          <i className="fas fa-user fa-2x" onClick={()=> this.logout()}></i>
-        </Link>
+          <Link to="/">
+            <i className="fas fa-user fa-2x" onClick={() => this.logout()}></i>
+          </Link>
         </div>
         <div className="title-container">
-          <h2 className="order-title">NEW ORDERS</h2> 
-          <h2 className="order-title2">READY</h2> 
-
+          <h2 className="order-title">NEW ORDERS</h2>
+          <h2 className="order-title2">READY</h2>
         </div>
         <div className="orders-container">
-            <div className='newOrders-container'>
-              <div className="newOrders">
-                {newOrders}
-              </div>
-              </div>
-            <div className='readyOrders'>{readyOrders}</div>
+          <div className="newOrders-container">
+            <div className="newOrders">{newOrders}</div>
+          </div>
+          <div className="readyOrders">{readyOrders}</div>
         </div>
         {/* <p className='admin'>{JSON.stringify(this.state.orders)}</p> */}
       </div>
-    ); 
+    );
   }
 }
 
@@ -136,4 +143,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, {updateUserInfo, clearCount})(Admin);
+export default connect(mapStateToProps, { updateUserInfo, clearCount })(Admin);

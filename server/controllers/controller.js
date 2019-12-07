@@ -58,7 +58,8 @@ module.exports = {
     database
       .add_order(
         req.session.user.user_id,
-        JSON.stringify(req.session.user.cart)
+        JSON.stringify(req.session.user.cart), 
+        req.body.time_stamp
       )
       .then(() => {
         req.session.user.cart = [];

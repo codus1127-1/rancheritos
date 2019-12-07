@@ -59,10 +59,13 @@ class Cart extends Component {
   };
 
   submitOrder = () => {
-    axios.post('/order').then(() => {
+    const time = new Date()
+    const pickup_time = new Date(time) 
+    pickup_time.setMinutes(pickup_time.getMinutes() +15)
+    axios.post('/order', {time_stamp: time}).then(() => {
       Swal.fire({
         title: 'Order received.',
-        text: `It will be ready in 15 minutes!`,
+        text: `It will be ready for pick up at ${pickup_time.toLocaleTimeString([], {hour: 'numeric', minute: '2-digit', hour12: true})}!`,
         width: 400,
         padding: '3em',
         background: 'url(https://ae01.alicdn.com/kf/HTB1VVnbqf5TBuNjSspcq6znGFXaH/rustic-Light-wood-texture-old-natural-table-top-Vintage-backgrounds-Vinyl-cloth-High-quality-Computer-print.jpg) center no-repeat',
