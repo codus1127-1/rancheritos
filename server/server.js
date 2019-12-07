@@ -31,9 +31,9 @@ app.use(
     app.post('/auth/login', authCtrl.login)
     app.delete('/auth/logout', authCtrl.logout)
     
-    app.get('*', (req, res)=>{
-        res.sendFile(path.join(__dirname, '../build/index.html'));
-    })
+    // app.get('*', (req, res)=>{
+    //     res.sendFile(path.join(__dirname, '../build/index.html'));
+    // })
 //Menu Categories
 app.get('/category', ctrl.getCategories)
 app.get('/category/items/:category', ctrl.getItems)

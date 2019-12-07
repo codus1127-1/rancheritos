@@ -3,9 +3,14 @@ import axios from "axios";
 import {Link} from 'react-router-dom'
 
 class Dash extends Component {
-  state = {
-    category: []
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      category: []
+    };
+    
+  }
+  
 
   componentDidMount = () => {
     axios.get("/category").then(res => {
