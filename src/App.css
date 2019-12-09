@@ -686,7 +686,7 @@ body {
   background: linear-gradient(to bottom right, rgba(67, 21, 21, 0.685), rgba(67, 21, 21, 0.438)); }
 
 .yellow {
-  background: linear-gradient(to bottom right, rgba(255, 230, 0, 0.685), rgba(255, 238, 0, 0.438)); }
+  background: linear-gradient(to bottom right, rgba(255, 230, 0, 0.425), rgba(255, 238, 0, 0.192)); }
 
 .green {
   background: linear-gradient(to bottom right, rgba(26, 67, 21, 0.685), rgba(25, 67, 21, 0.438)); }

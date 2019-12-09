@@ -27,11 +27,12 @@ class Admin extends Component {
 
   getOrders = () => {
     axios.get("/orders").then(res => {
-      const currentTime = new Date()
+      const currentTime = new Date();
       const newOrders = res.data.newOrders.map(el => {
-        const pickUpTime = new Date(el.time_stamp)
-        const timeToPickUp = (pickUpTime - currentTime) / 1000 / 60
-        console.log(pickUpTime)
+        const pickUpTime = new Date(el.time_stamp);
+        pickUpTime.setMinutes(pickUpTime.getMinutes() + 15);
+        const timeToPickUp = (pickUpTime - currentTime) / 1000 / 60;
+        console.log(timeToPickUp);
         return { ...el, timeToPickUp: timeToPickUp };
       });
       this.setState({
@@ -59,8 +60,17 @@ class Admin extends Component {
   pickedUpOrders = el => {
     axios.put(`/order/${el.id}`, { action: "picked up" }).then(() => {
       axios.get("/orders").then(res => {
+        const currentTime = new Date();
+        const newOrders = res.data.newOrders.map(el => {
+          const pickUpTime = new Date(el.time_stamp);
+          pickUpTime.setMinutes(pickUpTime.getMinutes() + 15);
+          const timeToPickUp = (pickUpTime - currentTime) / 1000 / 60;
+          console.log(timeToPickUp);
+          return { ...el, timeToPickUp: timeToPickUp };
+        });
         this.setState({
-          ...res.data
+          newOrders: newOrders,
+          readyOrders: res.data.readyOrders
         });
       });
     });
