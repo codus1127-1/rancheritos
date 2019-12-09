@@ -76,7 +76,7 @@ class StripeForm extends Component {
                     <div className="stripe-line-2"></div>
                     <CardElement className="card-element" />
                   </div>
-                  <button className="submit-btn">Confirm Payment</button>
+                  <button className="submit-btn">Add Card</button>
                 </form>
               </main>
           </div> 

@@ -715,6 +715,10 @@ body {
   font-weight: 700;
   width: 190px; }
 
+.time-stamp {
+  color: white;
+  padding: 10px; }
+
 table {
   max-width: 100%; }
 

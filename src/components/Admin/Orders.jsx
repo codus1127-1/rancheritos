@@ -44,7 +44,7 @@ class Orders extends Component {
         const i = this.props.i
         return (
           <div className={`admin-sub-category ${this.setColor(el)}`} >
-            <h1>{new Date(el.time_stamp).toLocaleTimeString([], {hour: 'numeric', minute: '2-digit', hour12: true})}</h1>
+            <h1 className="time-stamp">{new Date(el.time_stamp).toLocaleTimeString([], {hour: 'numeric', minute: '2-digit', hour12: true})}</h1>
               <div className="order-top">
               <h4>ORDER #:  {el.id}</h4>
                 <button onClick={() => this.props.buttonAction(el)}>

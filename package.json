@@ -1,7 +1,7 @@
 {
   "name": "rancheritos",
   "main": "server/server.js",
-  "proxy": "http://localhost:4444",
+  "proxy": "process.env.REACT_APP_LOGIN",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
