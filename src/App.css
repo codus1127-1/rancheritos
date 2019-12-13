@@ -962,7 +962,9 @@ table {
     align-items: center;
     justify-content: center; }
   .hero {
-    height: 350px; } }
+    height: 350px; }
+  .input {
+    width: 400px; } }
 
 @media (min-width: 1325px) {
   .mapped {
